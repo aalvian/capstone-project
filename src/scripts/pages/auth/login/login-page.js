@@ -10,19 +10,68 @@ export default class LoginPage {
 
   async render() {
     return `
-      <section class="form-page">
-      <div id="loginError" class="error-message" style="display:none"></div>
-        <form id="login-form" class="form-card">
-          <h1>Login</h1>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="text" placeholder="you@example.com" required />
+      <section class="form-login">
+        <div id="loginError" class="error-message d-none"></div>
 
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="********" required />
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+              <div class="card login-card bg-white border-0 p-4 mx-auto w-100">
+                <div class="card-body">
+                  <div class="text-center mb-3">
+                    <img src="favicon.png" alt="Logo" class="logo-img mb-2" />
+                  </div>
+                  <h2 class="fw-bold text-center mb-2 fs-2">Login</h2>
+                  <p class="text-center mb-4 login-subtitle">
+                    Do you already have an account?
+                    <a href="#/register" class="signup-link fw-medium">Sign up</a>
+                  </p>
+                  <form id="login-form" class="form" method="POST" autocomplete="off">
+                    <div class="mb-3">
+                      <label for="email" class="form-label fw-medium">
+                        Email  <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label fw-medium">
+                        Password <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="Enter your password"
+                        required
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe" />
+                        <label class="form-check-label" for="rememberMe">
+                          Remember me
+                        </label>
+                      </div>
+                      <a href="#" class="forgot-password-link">Forgot password</a>
+                    </div>
+                   <button type="submit" class="btn btn-primary w-100 login-btn fw-bold py-2 rounded-2 border-0">
+                    Submit
+                  </button>
 
-          <button type="submit">Login</button>
-          <p>Belum punya akun? <a href="#/register">Buat akun</a></p>
-        </form>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     `;
   }

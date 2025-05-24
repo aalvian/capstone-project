@@ -6,7 +6,7 @@ import RegisterPage from '../pages/auth/register/register-page';
 
 const routes = {
   '/': new DashboardPage(),
-  
+
   '/login': new LoginPage(),
   '/register': new RegisterPage(),
 
