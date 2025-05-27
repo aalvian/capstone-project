@@ -1,8 +1,13 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
+import TargetBelajarPresenter from '../targetBelajar/targetBelajar-presenter.js';
 
 export default class TargetBelajarPage {
+
+  constructor() {
+    this.presenter = new TargetBelajarPresenter();
+  }
   async render() {
     return `
       <section id="dashboard" class="header mt-40">
@@ -43,17 +48,17 @@ export default class TargetBelajarPage {
 
             <!-- Popup Detail Event -->
             <div id="eventDetailPopup" style="display: none;">
-  <div class="popup-header">
-    <h3>View Event</h3>
-  </div>
-  <div class="popup-body">
-    <p><strong>Titel :</strong> <span id="detailTitle"></span></p>
-    <p><strong>Start-date :</strong> <span id="detailStart"></span></p>
-    <p><strong>End-date :</strong> <span id="detailEnd"></span></p>
-    <p><strong>Deskripsi :</strong> <span id="detailDescription"></span></p>
-    <button type="button" onclick="closeEventDetailPopup()">Cancel</button>
-  </div>
-</div>
+              <div class="popup-header">
+                <h3>View Event</h3>
+              </div>
+              <div class="popup-body">
+                <p><strong>Titel :</strong> <span id="detailTitle"></span></p>
+                <p><strong>Start-date :</strong> <span id="detailStart"></span></p>
+                <p><strong>End-date :</strong> <span id="detailEnd"></span></p>
+                <p><strong>Deskripsi :</strong> <span id="detailDescription"></span></p>
+                <button type="button" onclick="closeEventDetailPopup()">Cancel</button>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -83,34 +88,7 @@ export default class TargetBelajarPage {
           },
         },
       },
-      events: [
-        {
-          title: 'Belajar JavaScript',
-          start: '2025-05-25',
-          end: '2025-05-26',
-          allDay: true,
-          extendedProps: {
-            description: 'Menyelesaikan modul dasar JavaScript',
-          },
-        },
-        {
-          title: 'Review React',
-          start: '2025-05-28',
-          allDay: true,
-          extendedProps: {
-            description: 'Latihan hooks dan state management',
-          },
-        },
-        {
-          title: 'Ujian CSS',
-          start: '2025-05-30',
-          end: '2025-05-30',
-          allDay: true,
-          extendedProps: {
-            description: 'Tes akhir styling dengan CSS',
-          },
-        },
-      ],
+      events: this.presenter.getAllEvents(),
       eventClick: function(info) {
         document.getElementById('detailTitle').textContent = info.event.title;
         document.getElementById('detailStart').textContent = info.event.startStr;
@@ -131,6 +109,8 @@ export default class TargetBelajarPage {
       const description = document.getElementById('eventDescription').value;
 
       if (title && startDate && endDate) {
+        const eventData = { title, start: startDate, end: endDate, description };
+        this.presenter.addEvent(eventData);
         calendar.addEvent({
           title: title,
           start: startDate,
