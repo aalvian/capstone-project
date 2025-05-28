@@ -121,7 +121,7 @@ export default class TargetBelajarPage {
         id: event.id,
         title: event.title,
         start: event.start,
-        end: event.end,
+        end: this.#adjustEndDate(event.end),
         allDay: true,
         extendedProps: {
           description: event.description,
@@ -148,6 +148,7 @@ export default class TargetBelajarPage {
       const endDate = document.getElementById('endDate').value;
       const description = document.getElementById('eventDescription').value.trim();
 
+
       if (!title || !startDate || !endDate || !description) {
         const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
         errorToast.show();
@@ -160,7 +161,7 @@ export default class TargetBelajarPage {
         id: newEvent.id,
         title: newEvent.title,
         start: newEvent.start,
-        end: newEvent.end,
+        end: this.#adjustEndDate(newEvent.end),
         allDay: true,
         extendedProps: {
           description: newEvent.description,
@@ -184,5 +185,11 @@ export default class TargetBelajarPage {
     window.closeEventDetailPopup = function () {
       document.getElementById('eventDetailPopup').style.display = 'none';
     };
+  }
+
+  #adjustEndDate(dateStr) {
+    const date = new Date(dateStr);
+    date.setDate(date.getDate() + 1); // Tambah 1 hari
+    return date.toISOString().split('T')[0]; // Format YYYY-MM-DD
   }
 }
