@@ -1,36 +1,20 @@
 import routes from '../routes/routes';
 import { getActiveRoute } from '../routes/url-parser';
+import {
+  generateUnauthNavigationTemplate,
+  generateAuthNavigationTemplate,
+  generateMainNavigationUnauthTemplate,
+  generateMainNavigationAuthTemplate,
+} from '../templates';
 
 class App {
   #content = null;
-  #drawerButton = null;
-  #navigationDrawer = null;
 
-  constructor({ navigationDrawer, drawerButton, content }) {
+  constructor({ content }) {
     this.#content = content;
-    this.#drawerButton = drawerButton;
-    this.#navigationDrawer = navigationDrawer;
 
-    // this._setupDrawer();
+    this._initAuthState();
   }
-
-  // _setupDrawer() {
-  //   this.#drawerButton.addEventListener('click', () => {
-  //     this.#navigationDrawer.classList.toggle('open');
-  //   });
-
-  //   document.body.addEventListener('click', (event) => {
-  //     if (!this.#navigationDrawer.contains(event.target) && !this.#drawerButton.contains(event.target)) {
-  //       this.#navigationDrawer.classList.remove('open');
-  //     }
-
-  //     this.#navigationDrawer.querySelectorAll('a').forEach((link) => {
-  //       if (link.contains(event.target)) {
-  //         this.#navigationDrawer.classList.remove('open');
-  //       }
-  //     })
-  //   });
-  // }
 
   _initAuthState() {
     this.#setupNavigationList();
@@ -42,28 +26,38 @@ class App {
 
   #setupNavigationList() {
     const isLoggedIn = !!localStorage.getItem('token');
-    const navUnauth = document.getElementById('navlist-unauth');
-    const navAuth = document.getElementById('navlist-auth');
+    const navMain = document.getElementById('navlist-main');
+    const navBtn = document.getElementById('navlist-botton');
 
-    navUnauth.innerHTML = '';
-    navAuth.innerHTML = isLoggedIn
-      ? generateAuthenticatedNavigationListTemplate()
-      : generateUnauthenticatedNavigationListTemplate();
+    navMain.innerHTML = isLoggedIn
+      ? generateMainNavigationAuthTemplate()
+      : generateMainNavigationUnauthTemplate();
+
+    navBtn.innerHTML = isLoggedIn
+      ? generateAuthNavigationTemplate()
+      : generateUnauthNavigationTemplate();
 
     if (isLoggedIn) {
-      const logoutButton = document.getElementById('logout-button');
-      logoutButton?.addEventListener('click', (e) => {
+      const logoutBtn = document.getElementById('logout-button');
+      logoutBtn?.addEventListener('click', (e) => {
         e.preventDefault();
         this._handleLogout();
       });
     }
   }
 
+  _handleLogout() {
+    if (confirm('Yakin ingin logout?')) {
+      localStorage.removeItem('token');
+      window.dispatchEvent(new Event('auth-change'));
+      window.location.hash = '#';
+    }
+  }
+
   async renderPage() {
     const url = getActiveRoute();
-    const page = routes[url];
+    const route = routes[url];
 
-    // Sembunyikan navbar & footer di halaman login/register
     const navbar = document.querySelector('nav.navbar');
     const footer = document.querySelector('footer');
     if (url === '/login' || url === '/register') {
@@ -74,10 +68,18 @@ class App {
       footer?.classList.remove('d-none');
     }
 
-    if (!page) {
-      // Bukan route SPA, biarkan browser scroll ke id
+    if (!route) {
+      // Not SPA route (misal scroll ke anchor ID), biarkan
       return;
     }
+
+    const token = localStorage.getItem('token');
+    if (route.requiresAuth && !token) {
+      window.location.hash = '/login';
+      return;
+    }
+
+    const page = route.page;
     this.#content.innerHTML = await page.render();
     await page.afterRender();
   }

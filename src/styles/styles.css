@@ -102,6 +102,20 @@ textarea.form-control {
   color: var(--white) !important;
 }
 
+.btn-danger {
+  padding: 12px 20px 12px 20px;
+  background: #e63946;         
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: var(--fwmedium);
+  border-radius: 30px;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #c82333;   
+}
+
 .navbar-nav .nav-item a:hover {
   color: var(--blue);
   font-weight: var(--fwsemibold);
@@ -405,4 +419,46 @@ footer hr {
 
 .main-content:has(.form-login) {
   padding-top: 0 !important;
+}
+
+
+/* REKOMENDASI PTN */
+.form-wrapper {
+  max-width: 800px;
+  width: 100%;
+  border: 2.5px solid #181d41;
+}
+
+.form-section-header {
+  background-color: #1E1B4B;
+  color: white;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-body {
+  padding: 18px 32px 32px 32px;
+}
+
+#rekomendasi-form .form-control {
+  border: 2px solid #181d41;
+  border-radius: 20px;
+  background: #fff;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  color: #222;
+  box-shadow: none;
+  transition: border-color 0.2s;
+}
+
+#rekomendasi-form .form-control:focus {
+  border-color: #3a38ff;
+  box-shadow: 0 0 0 2px rgba(58, 56, 255, 0.08);
+  outline: none;
+}
+
+#rekomendasi-form .form-label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #181d41;
 }

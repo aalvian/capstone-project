@@ -86,7 +86,7 @@ export default class RegisterPage {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = {
-        name: e.target.name.value,
+        username: e.target.username.value,
         email: e.target.email.value,
         password: e.target.password.value,
       };

@@ -4,14 +4,14 @@ export default class LoginPage {
   constructor() {
     this._showError = this.showError.bind(this);
     this.presenter = new LoginPresenter({
-      showError: this._showError,
+      view: this
     });
   }
 
   async render() {
     return `
       <section class="form-login">
-        <div id="loginError" class="error-message d-none"></div>
+        <div id="loginError" class="error-message"></div>
 
         <div class="container">
           <div class="row justify-content-center">

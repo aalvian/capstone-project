@@ -3,6 +3,8 @@ export default class HomePage {
     return `
       <section class="container">
         <h1>Home Page</h1>
+
+        // <!-- TIDAK PAKAI -->
       </section>
     `;
   }

@@ -6,7 +6,8 @@
     "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack serve --config webpack.dev.js",
     "serve": "npm run build && http-server ./dist --port 3000",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "start": "node backend/server.js"
   },
   "keywords": [],
   "author": "CAPSTONE <yourmail@mail.com>",
@@ -26,5 +27,11 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0",
     "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.4.0",
+    "bcrypt": "^6.0.0",
+    "crypto": "^1.0.1",
+    "mysql": "^2.18.1"
   }
 }

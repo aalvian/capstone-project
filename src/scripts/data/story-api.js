@@ -6,47 +6,6 @@ const ENDPOINTS = {
   STORIES: `${CONFIG.BASE_URL}/stories`,
 };
 
-// == Register == //
-export async function register({ name, email, password }) {
-  const response = await fetch(ENDPOINTS.REGISTER, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, password }),
-  });
-  const responseJson = await response.json();
-  return { ...responseJson, ok: response.ok };
-}
-
-// == Login == //
-export async function login({ email, password }) {
-  try {
-    const response = await fetch(ENDPOINTS.LOGIN, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      return {
-        error: true,
-        message: data.message || 'Login gagal',
-      };
-    }
-
-    return {
-      error: false,
-      loginResult: data.loginResult,
-    };
-  } catch (error) {
-    return {
-      error: true,
-      message: 'Terjadi kesalahan jaringan',
-    };
-  }
-}
-
 // == Get == //
 export async function getStories(token) {
   try {
