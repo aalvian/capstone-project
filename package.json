@@ -29,13 +29,8 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "body-parser": "^2.2.0",
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
     "fullcalendar": "^6.1.17",
     "fullcalendar-scheduler": "^6.1.17",
-    "idb": "^8.0.3",
-    "mysql2": "^3.14.1",
-    "pilih-ptn": "file:"
+    "idb": "^8.0.3"
   }
 }
