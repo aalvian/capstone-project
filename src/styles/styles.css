@@ -462,3 +462,228 @@ footer hr {
   font-weight: 500;
   color: #181d41;
 }
+
+
+/* SISTEM BELAJAR */
+.calender {
+  background: var(--white);
+  color: var(--navy);
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 40px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fc .fc-col-header-cell-cushion {
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: var(--fwsemibold);
+  color: var(--navy);
+  padding: 2px 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Popup overlay container */
+#eventPopup {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  padding: 30px 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header */
+#eventPopup h3 {
+  background-color: #151742;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  margin: -30px -25px 20px -25px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  font-size: 1.2rem;
+}
+
+/* Label */
+#eventPopup label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #151742;
+  font-size: 14px;
+}
+
+/* Input Fields */
+#eventPopup input[type="text"],
+#eventPopup input[type="date"],
+#eventPopup textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* Date fields in one row */
+#eventPopup .date-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#eventPopup .date-row div {
+  flex: 1;
+}
+
+/* Submit Button */
+#eventPopup button[type="submit"] {
+  background-color: #3b3bfd;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#eventPopup button[type="submit"]:hover {
+  background-color: #2f2fd9;
+}
+
+/* Cancel button (optional) */
+#eventPopup button[type="button"] {
+  background-color: #fd3b3b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#eventPopup button[type="button"]:hover {
+  background-color: #83221b;
+  color: white;
+}
+
+
+#eventDetailPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0;
+  width: 450px;
+  /* Diperbesar dari 350px */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  /* Lebih menonjol */
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.popup-header {
+  width: 100%;
+  background-color: #151742;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  /* Lebih besar */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  /* Diperbesar dari 1.2rem */
+}
+
+.popup-body {
+  padding: 24px;
+  /* Lebih longgar */
+  border: 1px solid #151742;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.popup-body p {
+  margin: 10px 0;
+  font-size: 16px;
+  /* Diperbesar dari 14px */
+  font-weight: 500;
+}
+
+.popup-body strong {
+  color: #151742;
+}
+
+.popup-body button {
+  display: block;
+  margin: 24px auto 0;
+  padding: 12px 28px;
+  /* Diperbesar */
+  background-color: #fd3b3b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  /* Diperbesar */
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-body button:hover {
+  background-color: #83221b;
+}

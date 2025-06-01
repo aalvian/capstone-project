@@ -1,9 +1,10 @@
 import DashboardPage from '../pages/dashboard/dashboard-page';
-import AboutPage from '../pages/about/about-page';
 import RekomendasiPage from '../pages/rekomendasi/rekomendasi-page';
 
 import LoginPage from '../pages/auth/login/login-page';
 import RegisterPage from '../pages/auth/register/register-page';
+import PomodoroPage from '../pages/pomodoro/pomodoro-page';
+import TargetBelajarPage from '../pages/target-belajar/targetBelajar-page';
 
 const routes = {
 
@@ -20,12 +21,16 @@ const routes = {
     requiresAuth: false,
   },
 
-  "/about": {
-    page: new AboutPage(),
+  "/rekomendasi": {
+    page: new RekomendasiPage(),
     requiresAuth: true,
   },
-    "/rekomendasi": {
-    page: new RekomendasiPage(),
+  "/target-belajar": {
+    page: new TargetBelajarPage(),
+    requiresAuth: true,
+  },
+  "/pomodoro": {
+    page: new PomodoroPage(),
     requiresAuth: true,
   },
 

@@ -18,10 +18,10 @@ export function generateMainNavigationAuthTemplate() {
       <a class="nav-link" href="#/rekomendasi">Rekomendasi</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#/about">Jadwal</a>
+      <a class="nav-link" href="#/target-belajar">Jadwal</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#/about">Pomodoro</a>
+      <a class="nav-link" href="#/pomodoro">Pomodoro</a>
     </li>
   `;
 }
