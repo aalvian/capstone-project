@@ -18,36 +18,23 @@
   --fwlight: 300;
 }
 
-<<<<<<< HEAD
-=======
 body::-webkit-scrollbar {
   display: none;
 }
 
->>>>>>> 1afd711 (pomodoro-sistem)
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bluesoft);
 }
 
-<<<<<<< HEAD
-.main-content {
-  padding-top: 100px;
-}
-
-=======
->>>>>>> 1afd711 (pomodoro-sistem)
 section[id] {
   scroll-margin-top: 140px;
 }
 
-<<<<<<< HEAD
-=======
 .main-content {
   padding-top: 100px;
 }
 
->>>>>>> 1afd711 (pomodoro-sistem)
 .medium-header {
   font-weight: var(--fwbold);
   color: var(--navy);
@@ -218,7 +205,6 @@ nav {
 
 /* section 1 */
 
-<<<<<<< HEAD
 .card-brand {
   width: 227px;
   height: 110px;
@@ -280,8 +266,6 @@ nav {
 
 /* section 2 */
 
-=======
->>>>>>> 1afd711 (pomodoro-sistem)
 .text-button {
   text-decoration: none;
   columns: var(--blue);
@@ -358,10 +342,7 @@ nav {
   transform: translateY(0); /* Kembali ke posisi awal */
 }
 
-<<<<<<< HEAD
-=======
 /* Footer */
->>>>>>> 1afd711 (pomodoro-sistem)
 .footer {
   padding-block: 40px;
 
@@ -396,10 +377,6 @@ footer hr {
   text-align: center;
 }
 
-<<<<<<< HEAD
-/* Responsive Navbar Height Fix */
-=======
->>>>>>> 1afd711 (pomodoro-sistem)
 @media (max-width: 991.98px) {
   .navbar {
     height: auto;
@@ -418,9 +395,6 @@ footer hr {
   .main-content {
     padding-top: 90px;
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 /* LOGIN REGISTER */
@@ -492,4 +466,3 @@ footer hr {
 .main-content:has(.form-login) {
   padding-top: 0 !important;
 } 
->>>>>>> 1afd711 (pomodoro-sistem)

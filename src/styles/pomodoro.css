@@ -88,13 +88,13 @@
   font-family: var(--font-mono);
 }
 
-.bg-red {
+body.bg-red {
   --accent: #f87070;
 }
- .bg-cyan {
+ body.bg-cyan {
   --accent: #70f3f8;
 }
- .bg-violet {
+ body.bg-violet {
   --accent: #d881f8;
 }
 

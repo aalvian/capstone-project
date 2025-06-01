@@ -1,7 +1,6 @@
-import { initPomodoro } from './pomodoro.js';
-import { loadSettings, initSettings } from './settings.js';
-import { initEventListeners } from './events.js';
+
 import '../../../styles/pomodoro.css';
+import { initPomodoroPresenter } from './pomodoro-presenter';
 
 export default class PomodoroPage {
   async render() {
@@ -95,9 +94,6 @@ export default class PomodoroPage {
 }
 
   async afterRender() {
-    loadSettings();
-    initSettings();
-    initEventListeners();
-    initPomodoro();
+    initPomodoroPresenter();
   }
 }
