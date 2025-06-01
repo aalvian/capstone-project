@@ -8,6 +8,10 @@ export default class HomePage {
   }
 
   async afterRender() {
+<<<<<<< HEAD
     // Do your job here
+=======
+    
+>>>>>>> 1afd711 (pomodoro-sistem)
   }
 }

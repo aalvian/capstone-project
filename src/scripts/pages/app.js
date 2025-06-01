@@ -63,6 +63,20 @@ class App {
     const url = getActiveRoute();
     const page = routes[url];
 
+<<<<<<< HEAD
+=======
+    // Sembunyikan navbar & footer di halaman login/register
+    const navbar = document.querySelector('nav.navbar');
+    const footer = document.querySelector('footer');
+    if (url === '/login' || url === '/register') {
+      navbar?.classList.add('d-none');
+      footer?.classList.add('d-none');
+    } else {
+      navbar?.classList.remove('d-none');
+      footer?.classList.remove('d-none');
+    }
+
+>>>>>>> 1afd711 (pomodoro-sistem)
     if (!page) {
       // Bukan route SPA, biarkan browser scroll ke id
       return;

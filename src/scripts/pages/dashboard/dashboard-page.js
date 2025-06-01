@@ -12,8 +12,13 @@ export default class DashboardPage {
                         
                     </h1>
                     <p class="primary-copy mb-30">
+<<<<<<< HEAD
                         Kelola waktu lebih baik dan tingkatkan produktivitas<br>
                         dengan asisten pintar manajemen tugas.
+=======
+                        Maksimalkan persiapan UTBK dan perjalananmu ke PTN favorit<br>
+                        dengan fitur yang membantu kamu tetap produktif
+>>>>>>> 1afd711 (pomodoro-sistem)
                     </p>
                     <a href="#/login" class="btn btn-primary mr-10">Mulai Sekarang</a>
                 </div>
@@ -35,7 +40,11 @@ export default class DashboardPage {
                         Fitur Utama
                     </h3>
                     <p class="primary-copy mb-30">
+<<<<<<< HEAD
                         Sistem efisien meningkatkan produktivitas
+=======
+                        Sistem efisien meningkatkan semangat
+>>>>>>> 1afd711 (pomodoro-sistem)
                     </p>
                 </div>
 
@@ -82,6 +91,45 @@ export default class DashboardPage {
 
                 <!-- right -->
                 <div class="col-lg-5">
+<<<<<<< HEAD
+=======
+
+                    <div class="col-lg-12 mb-30">
+                        <div class="small-features-card" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
+                            <div class="icon">
+                                <img src="images/icon_p.png" alt="">
+                            </div>
+                            <div class="copy">
+                                <h3 class="small-header mb-10">
+                                    Prediksi Nilai
+                                </h3>
+                                <p class="primary-copy">
+                                    Cek prediksi skor UTBK-mu untuk
+                                    mengetahui peluang lolos ke PTN impian.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="col-lg-12 mb-30">
+                        <div class="small-features-card" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
+                            <div class="icon">
+                                <img src="images/icon_a.png" alt="">
+                            </div>
+                            <div class="copy">
+                                <h3 class="small-header mb-10">
+                                    Integrasi Kalender
+                                </h3>
+                                <p class="primary-copy">
+                                    Sinkronisasi dengan kalendar 
+                                    untuk mengelola jadwal lebih efisien.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+>>>>>>> 1afd711 (pomodoro-sistem)
                     <div class="col-lg-12 mb-30">
                         <div class="small-features-card" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
                             <div class="icon">
@@ -98,6 +146,7 @@ export default class DashboardPage {
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-lg-12 mb-30">
                         <div class="small-features-card" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-in-out">
                             <div class="icon">
@@ -130,6 +179,8 @@ export default class DashboardPage {
                             </div>
                         </div>
                     </div>
+=======
+>>>>>>> 1afd711 (pomodoro-sistem)
                 </div>
             </div>
         </div> 

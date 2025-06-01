@@ -18,19 +18,36 @@
   --fwlight: 300;
 }
 
+<<<<<<< HEAD
+=======
+body::-webkit-scrollbar {
+  display: none;
+}
+
+>>>>>>> 1afd711 (pomodoro-sistem)
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bluesoft);
 }
 
+<<<<<<< HEAD
 .main-content {
   padding-top: 100px;
 }
 
+=======
+>>>>>>> 1afd711 (pomodoro-sistem)
 section[id] {
   scroll-margin-top: 140px;
 }
 
+<<<<<<< HEAD
+=======
+.main-content {
+  padding-top: 100px;
+}
+
+>>>>>>> 1afd711 (pomodoro-sistem)
 .medium-header {
   font-weight: var(--fwbold);
   color: var(--navy);
@@ -201,6 +218,7 @@ nav {
 
 /* section 1 */
 
+<<<<<<< HEAD
 .card-brand {
   width: 227px;
   height: 110px;
@@ -262,6 +280,8 @@ nav {
 
 /* section 2 */
 
+=======
+>>>>>>> 1afd711 (pomodoro-sistem)
 .text-button {
   text-decoration: none;
   columns: var(--blue);
@@ -338,6 +358,10 @@ nav {
   transform: translateY(0); /* Kembali ke posisi awal */
 }
 
+<<<<<<< HEAD
+=======
+/* Footer */
+>>>>>>> 1afd711 (pomodoro-sistem)
 .footer {
   padding-block: 40px;
 
@@ -372,7 +396,10 @@ footer hr {
   text-align: center;
 }
 
+<<<<<<< HEAD
 /* Responsive Navbar Height Fix */
+=======
+>>>>>>> 1afd711 (pomodoro-sistem)
 @media (max-width: 991.98px) {
   .navbar {
     height: auto;
@@ -391,4 +418,78 @@ footer hr {
   .main-content {
     padding-top: 90px;
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+/* LOGIN REGISTER */
+.login-card {
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+  max-width: 540px;
+}
+
+.logo-img {
+  height: 60px;
+}
+
+.login-subtitle {
+  color: #444;
+}
+
+.signup-link {
+  color: #2a3cff;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-link {
+  font-size: 0.98rem;
+  color: #222;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  background-color: #181d41;
+}
+
+.login-btn:hover {
+  background-color: #141837;
+}
+
+.form-login {
+  min-height: 100vh;
+  background: url('../public/images/bg-login.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-login .form-control {
+  border-radius: 10px;
+  border: 2px solid #222;
+  background: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-login .form-control:focus {
+  border-color: #2a3cff;
+  box-shadow: 0 0 0 2px rgba(58, 56, 255, 0.08);
+  outline: none;
+}
+
+.main-content:has(.form-login) {
+  padding-top: 0 !important;
+} 
+>>>>>>> 1afd711 (pomodoro-sistem)

@@ -1,7 +1,11 @@
 {
   "name": "pilih-ptn",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "",
+=======
+  "description": "Proyek ini adalah setup dasar untuk aplikasi web yang menggunakan webpack untuk proses bundling, Babel untuk transpile JavaScript, serta mendukung proses build dan serving aplikasi.",
+>>>>>>> 1afd711 (pomodoro-sistem)
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack serve --config webpack.dev.js",
@@ -26,5 +30,10 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0",
     "webpack-merge": "^6.0.1"
+<<<<<<< HEAD
   }
+=======
+  },
+  "main": "webpack.common.js"
+>>>>>>> 1afd711 (pomodoro-sistem)
 }

@@ -1,6 +1,9 @@
 // CSS imports
 import '../styles/styles.css';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1afd711 (pomodoro-sistem)
 import App from './pages/app';
 
 document.addEventListener('DOMContentLoaded', async () => {
