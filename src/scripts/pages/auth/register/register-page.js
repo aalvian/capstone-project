@@ -10,24 +10,6 @@ export default class RegisterPage {
 
   async render() {
     return `
-<<<<<<< HEAD
-      <section class="form-page">
-        <div id="registerError" class="error-message" style="display:none"></div>
-        <form id="registerForm" class="form-card">
-          <h1>Register</h1>
-          <label for="name">Nama</label>
-          <input id="name" name="name" type="text" placeholder="John Doe" required />
-
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="********" required />
-          
-          <button type="submit">Register</button>
-          <p>Sudah punya akun? <a href="#/login">Login</a></p>
-        </form>
-=======
       <section class="form-login">
         <div id="registerError" class="error-message d-none"></div>
 
@@ -95,17 +77,12 @@ export default class RegisterPage {
             </div>
           </div>
         </div>
->>>>>>> 1afd711 (pomodoro-sistem)
       </section>
     `;
   }
 
   async afterRender() {
-<<<<<<< HEAD
-    const form = document.getElementById('registerForm');
-=======
     const form = document.getElementById('register-form');
->>>>>>> 1afd711 (pomodoro-sistem)
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = {
