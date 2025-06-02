@@ -10,10 +10,10 @@ export default class LoginPage {
 
   async render() {
     return `
-      <section class="form-login">
-        <div id="loginError" class="error-message"></div>
-
-        <div class="container">
+    <section class="form-login">
+    
+    <div class="container">
+    <div id="loginError" class="error-message" style="display: none;"></div>
           <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6">
               <div class="card login-card bg-white border-0 p-4 mx-auto w-100">
@@ -38,6 +38,7 @@ export default class LoginPage {
                         class="form-control"
                         placeholder="Enter your email"
                         required
+                        autocomplete="email"
                       />
                     </div>
                     <div class="mb-3">

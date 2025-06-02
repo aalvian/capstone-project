@@ -1,7 +1,6 @@
-import { initPomodoro } from './pomodoro.js';
-import { loadSettings, initSettings } from './settings.js';
-import { initEventListeners } from './events.js';
+
 import '../../../styles/pomodoro.css';
+import { initPomodoroPresenter } from './pomodoro-presenter';
 
 export default class PomodoroPage {
   async render() {
@@ -11,9 +10,9 @@ export default class PomodoroPage {
       <h1 class="main-heading">Pomodoro</h1>
 
       <div class="modes">
-        <a class="mode" data-time="1500" data-pomodoro>Fokus</a>
-        <a class="mode" data-time="300" data-short-break>Jeda Istirahat</a>
-        <a class="mode" data-time="900" data-long-break>Istirahat Total</a>
+        <a class="mode" data-time="1500" data-pomodoro>pomodoro</a>
+        <a class="mode" data-time="300" data-short-break>short break</a>
+        <a class="mode" data-time="900" data-long-break>long break</a>
       </div>
 
       <div class="get-started">
@@ -95,9 +94,6 @@ export default class PomodoroPage {
 }
 
   async afterRender() {
-    loadSettings();
-    initSettings();
-    initEventListeners();
-    initPomodoro();
+    initPomodoroPresenter();
   }
 }

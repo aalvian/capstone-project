@@ -11,9 +11,9 @@ export default class RegisterPage {
   async render() {
     return `
       <section class="form-login">
-        <div id="registerError" class="error-message d-none"></div>
-
-        <div class="container m-4 p-4">
+      
+      <div class="container m-4 p-4">
+      <div id="registerError" class="error-message" style="display: none;"></div>
           <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6">
               <div class="card login-card bg-white border-0 p-4 mx-auto w-100">
