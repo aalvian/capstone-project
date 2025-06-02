@@ -1,10 +1,9 @@
-
 import '../../../styles/pomodoro.css';
 import { initPomodoroPresenter } from './pomodoro-presenter';
 
 export default class PomodoroPage {
   async render() {
-  return `
+    return `
     <section class="pomodoro-page">
      <div class="pomodoro-container">
       <h1 class="main-heading">Pomodoro</h1>
@@ -91,7 +90,7 @@ export default class PomodoroPage {
       </div>
     </section>
   `;
-}
+  }
 
   async afterRender() {
     initPomodoroPresenter();

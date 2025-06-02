@@ -4,7 +4,7 @@ export default class LoginPage {
   constructor() {
     this._showError = this.showError.bind(this);
     this.presenter = new LoginPresenter({
-      view: this
+      view: this,
     });
   }
 

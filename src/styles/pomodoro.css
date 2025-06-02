@@ -2,9 +2,9 @@
   --font: var(--font-sans-serif);
   --color-accent: var(--color-red);
 
-  --font-sans-serif: "Poppins", sans-serif;
-  --font-serif: "Aleo", serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans-serif: 'Poppins', sans-serif;
+  --font-serif: 'Aleo', serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   --color-red: rgb(250, 111, 113);
   --color-cyan: rgb(112, 243, 248);
@@ -46,9 +46,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 80vh; 
+  min-height: 80vh;
 }
-
 
 .pomodoro-page label {
   display: block;
@@ -73,7 +72,7 @@
 }
 
 .pomodoro-page [data-accent-color].active::before {
-  content: url("../public/assets/check.svg");
+  content: url('../public/assets/check.svg');
   position: absolute;
   transform: translate(-50%, -40%);
 }
@@ -91,20 +90,20 @@
 .bg-red {
   --accent: #f87070;
 }
- .bg-cyan {
+.bg-cyan {
   --accent: #70f3f8;
 }
- .bg-violet {
+.bg-violet {
   --accent: #d881f8;
 }
 
-.pomodoro-page .radio-btn[data-accent-color="red"] {
+.pomodoro-page .radio-btn[data-accent-color='red'] {
   background-color: var(--color-red);
 }
-.pomodoro-page .radio-btn[data-accent-color="cyan"] {
+.pomodoro-page .radio-btn[data-accent-color='cyan'] {
   background-color: var(--color-cyan);
 }
-.pomodoro-page .radio-btn[data-accent-color="violet"] {
+.pomodoro-page .radio-btn[data-accent-color='violet'] {
   background-color: var(--color-violet);
 }
 
@@ -192,7 +191,7 @@
   background: #151932;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     border: 10px solid var(--accent);
     border-radius: 50%;
@@ -225,7 +224,9 @@
   margin: auto;
   opacity: 0;
   overflow: visible;
-  transition: opacity 200ms, transform 200ms allow-discrete;
+  transition:
+    opacity 200ms,
+    transform 200ms allow-discrete;
 }
 .pomodoro-page .settings-modal__container,
 .pomodoro-page .settings-modal__container::backdrop {
@@ -282,7 +283,7 @@
   border-bottom: none;
 }
 
-.pomodoro-page .settings-modal__row-wrap[class$="inline"] {
+.pomodoro-page .settings-modal__row-wrap[class$='inline'] {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -295,14 +296,14 @@
   flex: 1 0 100%;
   margin-bottom: 0.5rem;
 }
-.pomodoro-page .settings-modal__row-wrap input[type="number"] {
+.pomodoro-page .settings-modal__row-wrap input[type='number'] {
   padding: 1rem;
   border-radius: 8px;
   width: 15ch;
   border: 0;
   background-color: #eef1f9;
 }
-.pomodoro-page .settings-modal__row-wrap input[type="number"]:user-invalid {
+.pomodoro-page .settings-modal__row-wrap input[type='number']:user-invalid {
   outline: 2px solid red;
 }
 
@@ -312,7 +313,7 @@
   flex-wrap: wrap;
   gap: 2rem;
 }
-.pomodoro-page .settings-modal__inputs-wrap[class$="--top-spacer"] {
+.pomodoro-page .settings-modal__inputs-wrap[class$='--top-spacer'] {
   margin-top: 1.5rem;
 }
 .pomodoro-page .settings-modal__inputs-wrap label {
@@ -350,7 +351,7 @@
   .pomodoro-page .main-heading {
     font-size: 2.4rem;
   }
-  
+
   .pomodoro-page .pomodoro {
     &::before {
       width: 22rem;
@@ -384,11 +385,10 @@
   }
 
   .pomodoro-page .icon1 {
-  width: 2rem;
-  height: 2rem;
+    width: 2rem;
+    height: 2rem;
   }
 }
-
 
 @media screen and (max-width: 480px) {
   .pomodoro-container {
@@ -399,7 +399,6 @@
   .pomodoro-page .main-heading {
     font-size: 2rem;
   }
-
 
   .pomodoro-page main {
     width: 18rem;

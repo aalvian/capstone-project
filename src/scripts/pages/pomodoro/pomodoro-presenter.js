@@ -43,7 +43,9 @@ function startCountdown(duration) {
   if (!display) return;
 
   function updateDisplay(seconds) {
-    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const m = Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
     display.textContent = `${m}:${s}`;
   }
@@ -96,14 +98,14 @@ function initEventListeners() {
 
   document.querySelectorAll('[data-font]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-font]').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[data-font]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
 
   document.querySelectorAll('[data-accent-color]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-accent-color]').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[data-accent-color]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
@@ -143,7 +145,8 @@ export function handleSettingsFormSubmit(event) {
     shortBreak: parseInt(document.getElementById('shortBreak').value),
     longBreak: parseInt(document.getElementById('longBreak').value),
     font: document.querySelector('[data-font].active')?.dataset.font || 'sans-serif',
-    accentColor: document.querySelector('[data-accent-color].active')?.dataset.accentColor || 'cyan',
+    accentColor:
+      document.querySelector('[data-accent-color].active')?.dataset.accentColor || 'cyan',
   };
 
   localStorage.setItem('pomodoro-settings', JSON.stringify(settings));

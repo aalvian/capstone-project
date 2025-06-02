@@ -104,7 +104,7 @@ textarea.form-control {
 
 .btn-danger {
   padding: 12px 20px 12px 20px;
-  background: #e63946;         
+  background: #e63946;
   color: #fff !important;
   font-size: 16px;
   font-weight: var(--fwmedium);
@@ -113,7 +113,7 @@ textarea.form-control {
 }
 
 .btn-danger:hover {
-  background: #c82333;   
+  background: #c82333;
 }
 
 .navbar-nav .nav-item a:hover {
@@ -434,9 +434,7 @@ footer hr {
   width: 40%;
   text-align: center;
   margin-inline: auto;
-
 }
-
 
 /* REKOMENDASI PTN */
 .form-wrapper {
@@ -446,7 +444,7 @@ footer hr {
 }
 
 .form-section-header {
-  background-color: #1E1B4B;
+  background-color: #1e1b4b;
   color: white;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -478,7 +476,6 @@ footer hr {
   font-weight: 500;
   color: #181d41;
 }
-
 
 /* SISTEM BELAJAR */
 .calender {
@@ -566,8 +563,8 @@ footer hr {
 }
 
 /* Input Fields */
-#eventPopup input[type="text"],
-#eventPopup input[type="date"],
+#eventPopup input[type='text'],
+#eventPopup input[type='date'],
 #eventPopup textarea {
   width: 100%;
   padding: 12px 14px;
@@ -591,7 +588,7 @@ footer hr {
 }
 
 /* Submit Button */
-#eventPopup button[type="submit"] {
+#eventPopup button[type='submit'] {
   background-color: #3b3bfd;
   color: white;
   border: none;
@@ -604,12 +601,12 @@ footer hr {
   transition: background-color 0.3s ease;
 }
 
-#eventPopup button[type="submit"]:hover {
+#eventPopup button[type='submit']:hover {
   background-color: #2f2fd9;
 }
 
 /* Cancel button (optional) */
-#eventPopup button[type="button"] {
+#eventPopup button[type='button'] {
   background-color: #fd3b3b;
   color: white;
   border: none;
@@ -622,11 +619,10 @@ footer hr {
   transition: background-color 0.3s ease;
 }
 
-#eventPopup button[type="button"]:hover {
+#eventPopup button[type='button']:hover {
   background-color: #83221b;
   color: white;
 }
-
 
 #eventDetailPopup {
   position: fixed;
@@ -701,5 +697,5 @@ footer hr {
 }
 
 .popup-body button:hover {
-  background-color: #83221b;
+  background-color:  #83221b;
 }

@@ -1,8 +1,7 @@
 import { login } from '../../../data/auth-api';
 
-
 class LoginPresenter {
-  constructor({view}) {
+  constructor({ view }) {
     this._view = view;
   }
 
@@ -13,16 +12,14 @@ class LoginPresenter {
     }
 
     try {
-
       const { error, loginResult } = await login({ email, password });
       console.log('Login Result:', loginResult);
-      
 
       if (error) {
         this._view.showError('Email atau password salah');
         return;
       }
-      
+
       localStorage.setItem('token', loginResult.user.token);
       window.dispatchEvent(
         new CustomEvent('auth-change', {

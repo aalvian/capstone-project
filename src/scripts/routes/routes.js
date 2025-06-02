@@ -7,33 +7,31 @@ import PomodoroPage from '../pages/pomodoro/pomodoro-page';
 import TargetBelajarPage from '../pages/target-belajar/targetBelajar-page';
 
 const routes = {
-
-  "/": {
+  '/': {
     page: new DashboardPage(),
     requiresAuth: false,
   },
-  "/login": {
+  '/login': {
     page: new LoginPage(),
     requiresAuth: false,
   },
-  "/register": {
+  '/register': {
     page: new RegisterPage(),
     requiresAuth: false,
   },
 
-  "/rekomendasi": {
+  '/rekomendasi': {
     page: new RekomendasiPage(),
     requiresAuth: true,
   },
-  "/target-belajar": {
+  '/target-belajar': {
     page: new TargetBelajarPage(),
     requiresAuth: true,
   },
-  "/pomodoro": {
+  '/pomodoro': {
     page: new PomodoroPage(),
     requiresAuth: true,
   },
-
 };
 
 export default routes;

@@ -1,31 +1,31 @@
-  import { openDB } from 'idb';
-  
-  const DATABASE_NAME = 'pilih-ptn';
-  const DATABASE_VERSION = 1;
-  const OBJECT_STORE_NAME = 'target-belajar';
-  
-  const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
-    upgrade: (database) => {
-      database.createObjectStore(OBJECT_STORE_NAME, {
-        keyPath: 'id',
-      });
-    },
-  });
+import { openDB } from 'idb';
 
-  const Database = {
-    async putReport(report) {
-      if (!Object.hasOwn(report, 'id')) {
-        throw new Error('`id` is required to save.');
-      }
-      return (await dbPromise).put(OBJECT_STORE_NAME, report);
-    },
+const DATABASE_NAME = 'pilih-ptn';
+const DATABASE_VERSION = 1;
+const OBJECT_STORE_NAME = 'target-belajar';
 
-    async getAllReports() {
-      return (await dbPromise).getAll(OBJECT_STORE_NAME);
-    },
+const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
+  upgrade: (database) => {
+    database.createObjectStore(OBJECT_STORE_NAME, {
+      keyPath: 'id',
+    });
+  },
+});
 
-    async removeReport(id) {
+const Database = {
+  async putReport(report) {
+    if (!Object.hasOwn(report, 'id')) {
+      throw new Error('`id` is required to save.');
+    }
+    return (await dbPromise).put(OBJECT_STORE_NAME, report);
+  },
+
+  async getAllReports() {
+    return (await dbPromise).getAll(OBJECT_STORE_NAME);
+  },
+
+  async removeReport(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
-  };
-  export default Database;
+};
+export default Database;

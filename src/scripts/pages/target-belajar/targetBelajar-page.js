@@ -113,7 +113,7 @@ export default class TargetBelajarPage {
           },
         },
       },
-      events: events.map(event => ({
+      events: events.map((event) => ({
         id: event.id,
         title: event.title,
         start: event.start,
@@ -144,14 +144,18 @@ export default class TargetBelajarPage {
       const endDate = document.getElementById('endDate').value;
       const description = document.getElementById('eventDescription').value.trim();
 
-
       if (!title || !startDate || !endDate || !description) {
         const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
         errorToast.show();
         return;
       }
 
-      const newEvent = await this.#presenter.addEvent({ title, start: startDate, end: endDate, description });
+      const newEvent = await this.#presenter.addEvent({
+        title,
+        start: startDate,
+        end: endDate,
+        description,
+      });
 
       calendar.addEvent({
         id: newEvent.id,
