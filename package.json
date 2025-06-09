@@ -7,7 +7,9 @@
     "start-dev": "webpack serve --config webpack.dev.js",
     "serve": "npm run build && http-server ./dist --port 3000",
     "prettier": "prettier . --write",
-    "start": "node src/scripts/backend/server.js"
+    "start": "node backend/server.js",
+
+    "dev": "concurrently  \"npm run start-dev\" \"npm run start\""
   },
   "keywords": [],
   "author": "CAPSTONE <yourmail@mail.com>",
@@ -16,6 +18,7 @@
     "@babel/preset-env": "^7.26.9",
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^9.1.2",
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
@@ -34,6 +37,7 @@
     "crypto": "^1.0.1",
     "fullcalendar": "^6.1.17",
     "idb": "^8.0.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "pilih-ptn": "file:"
   }
 }
