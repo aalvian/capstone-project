@@ -541,6 +541,85 @@ footer hr {
   font-family: 'Arial', sans-serif;
 }
 
+/* Responsive FullCalendar */
+@media (max-width: 768px) {
+  .calender {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #calendar {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .fc-toolbar.fc-header-toolbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .fc-button {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Tambahan untuk layar Android 480px */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .big-header {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .calender {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #eventPopup,
+  #eventDetailPopup {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  #eventForm input,
+  #eventForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .date-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .fc-toolbar.fc-header-toolbar {
+    gap: 6px;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.1rem;
+  }
+}
+
+
+
 /* Header */
 #eventPopup h3 {
   background-color: #151742;

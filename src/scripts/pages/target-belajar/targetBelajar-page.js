@@ -100,6 +100,7 @@ export default class TargetBelajarPage {
     const calendar = new Calendar(calendarEl, {
       plugins: [dayGridPlugin, listPlugin],
       initialView: 'dayGridMonth',
+      aspectRatio: 1.5,
       headerToolbar: {
         left: 'dayGridMonth,listWeek,addEventButton',
         center: 'title',
