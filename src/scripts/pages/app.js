@@ -80,8 +80,17 @@ class App {
     }
 
     const page = route.page;
-    this.#content.innerHTML = await page.render();
-    await page.afterRender();
+
+    // Terapkan view transition jika didukung browser
+    if (document.startViewTransition) {
+      document.startViewTransition(async () => {
+        this.#content.innerHTML = await page.render();
+        await page.afterRender();
+      });
+    } else {
+      this.#content.innerHTML = await page.render();
+      await page.afterRender();
+    }
   }
 }
 

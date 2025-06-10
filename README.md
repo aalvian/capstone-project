@@ -1,28 +1,55 @@
-# App Starter Project with Webpack
+# 🎓 Pilih PTN — Teman Setia Menuju Kampus Impianmu!
 
-Proyek ini adalah setup dasar untuk aplikasi web yang menggunakan webpack untuk proses bundling, Babel untuk transpile JavaScript, serta mendukung proses build dan serving aplikasi.
+*Pilih PTN* adalah aplikasi web interaktif yang dirancang untuk membantu siswa SMA/SMK sederajat dalam menentukan kampus terbaik berdasarkan nilai tryout SNBT mereka. Lebih dari sekadar rekomendasi, aplikasi ini hadir dengan fitur belajar cerdas dan personal, agar pengguna makin siap menghadapi ujian sebenarnya.
 
-## Table of Contents
+---
 
-- [Getting Started](#getting-started)
-- [Scripts](#scripts)
-- [Project Structure](#project-structure)
+## 🚀 Kenapa Pilih PTN?
 
-## Getting Started
+Kami menemukan bahwa banyak siswa kesulitan dalam:
 
-### Prerequisites
+- Menentukan *PTN yang cocok* dengan nilai mereka.
+- Mengetahui *subtes mana yang perlu diperbaiki*.
+- Mengatur waktu belajar dengan *lebih fokus dan terstruktur*.
 
-- [Node.js](https://nodejs.org/) (disarankan versi 12 atau lebih tinggi)
-- [npm](https://www.npmjs.com/) (Node package manager)
+*Pilih PTN hadir sebagai solusi.*  
+Kami memadukan teknologi web modern dan pendekatan Machine Learning untuk memberikan rekomendasi, insight belajar, dan fitur produktivitas dalam satu platform.
 
-### Installation
+---
 
-1. Download starter project [di sini](https://raw.githubusercontent.com/dicodingacademy/a219-web-intermediate-labs/099-shared-files/starter-project-with-webpack.zip).
-2. Lakukan unzip file.
-3. Pasang seluruh dependencies dengan perintah berikut.
-   ```shell
-   npm install
-   ```
+## ✨ Fitur Utama
+
+🔍 *Rekomendasi PTN Otomatis*  
+Cukup masukkan nilai tryout SNBT-mu. Sistem akan memberikan daftar PTN yang cocok menggunakan metode klasifikasi dan klusterisasi.
+
+📚 *Saran Belajar Personal*  
+Identifikasi subtes yang masih lemah dan dapatkan tips belajar yang sesuai untuk meningkatkan skor.
+
+🗓 *Penjadwalan Belajar*  
+Buat jadwal belajar seperti menggunakan Google Calendar — fleksibel, mudah, dan bisa disesuaikan.
+
+⏱ *Pomodoro Timer*  
+Gunakan teknik 25 menit belajar + 5 menit istirahat untuk menjaga fokus dan produktivitas.
+
+---
+
+## ⚙ Teknologi yang Digunakan
+
+| Kategori     | Teknologi                                      |
+|--------------|-------------------------------------------------|
+| Frontend     | Webpack, Bootstrap, Vanilla JavaScript          |
+| Backend      | Hapi.js (REST API)                              |
+| Database     | PostgreSQL                                      |
+| Tools        | Babel, IndexedDB, Service Worker, Prettier      |
+
+---
+
+## 📦 Cara Instalasi
+
+### Prasyarat
+
+- [Node.js](https://nodejs.org/) (versi 12+)
+- [npm](https://www.npmjs.com/) (biasanya sudah termasuk dalam Node.js)
 
 ## Scripts
 
@@ -54,19 +81,24 @@ Proyek starter ini dirancang agar kode tetap modular dan terorganisir.
 
 ```text
 starter-project/
-├── dist/                   # Compiled files for production
-├── src/                    # Source project files
-│   ├── public/             # Public files
-│   ├── scripts/            # Source JavaScript files
-│   │   └── index.js        # Main JavaScript entry file
-│   ├── styles/             # Source CSS files
-│   │   └── styles.css      # Main CSS file
-│   └── index.html/         # Main HTML file
-├── package.json            # Project metadata and dependencies
-├── package-lock.json       # Project metadata and dependencies
-├── README.md               # Project documentation
-├── STUDENT.txt             # Student information
-├── webpack.common.js       # Webpack common configuration
-├── webpack.dev.js          # Webpack development configuration
-└── webpack.prod.js         # Webpack production configuration
+├── dist/                     # File hasil build produksi
+├── src/
+│   ├── public/
+│   │   ├── assets/           # Aset tambahan (ikon, dll.)
+│   │   └── images/           # Gambar dan media
+│   ├── scripts/
+│   │   ├── data/             # Komunikasi dengan API
+│   │   ├── pages/            # Halaman aplikasi
+│   │   ├── routes/           # Routing dan navigasi
+│   │   └── utils/            # Fungsi pembantu
+│   ├── styles/
+│   │   ├── styles.css        # CSS utama
+│   │   └── pomodoro.css      # CSS khusus Pomodoro
+│   └── index.html            # HTML utama
+├── webpack.common.js         # Konfigurasi umum Webpack
+├── webpack.dev.js            # Konfigurasi dev
+├── webpack.prod.js           # Konfigurasi production
+├── package.json              # Metadata & dependensi proyek
+├── STUDENT.txt               # Identitas mahasiswa/pembuat
+└── README.md                 # Dokumentasi proyek ini
 ```
