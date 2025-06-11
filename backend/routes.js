@@ -16,6 +16,13 @@ const routes = [
     path: '/api/login',
     handler: loginUserHandler,
   },
+  {
+    method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+      return { message: 'Backend Hapi aktif dan berjalan!' };
+    }
+  },
 ];
 
 module.exports = routes;

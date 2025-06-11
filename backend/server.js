@@ -4,7 +4,7 @@ require('dotenv').config(); // Biar bisa pakai .env (lokal)
 
 const init = async () => {
   const server = Hapi.server({
-    port: process.env.PORT || 3000, // Railway otomatis isi process.env.PORT
+    port: process.env.PORT || 8080, // Railway otomatis isi process.env.PORT
     host: '0.0.0.0', // WAJIB untuk Railway
     routes: {
       cors: {
