@@ -23,6 +23,13 @@ const routes = [
       return { message: 'Backend Hapi aktif dan berjalan!' };
     }
   },
+  {
+    method: '*',
+    path: '/{any*}',
+    handler: (request, h) => {
+      return h.response({ statusCode: 404, error: 'Not Found', message: 'Route tidak ditemukan' }).code(404);
+    }
+  }
 ];
 
 module.exports = routes;

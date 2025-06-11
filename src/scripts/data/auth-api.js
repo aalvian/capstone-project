@@ -1,20 +1,23 @@
+const BASE_URL = 'https://capstone-project-production-af1e.up.railway.app';
+
 // == Register == //
 export async function register({ username, email, password }) {
-  const response = await fetch('http://localhost:3000/api/register', {
+  const response = await fetch(`${BASE_URL}/api/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, email, password }),
   });
-  console.log('Berhasil register', response);
 
   const responseJson = await response.json();
+  console.log('Berhasil register', responseJson);
+
   return { ...responseJson, ok: response.ok };
 }
 
 // == Login == //
 export async function login({ email, password }) {
   try {
-    const response = await fetch('http://localhost:3000/api/login', {
+    const response = await fetch(`${BASE_URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
