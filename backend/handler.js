@@ -19,28 +19,28 @@ const checkDatabaseHandler = (request, h) => {
 const registerUserHandler = async (request, h) => {
   const { username, email, password } = request.payload;
 
-  return new Promise((resolve, reject) => {
-    const checkSql = 'SELECT * FROM users WHERE email = ?';
-    db.query(checkSql, [email], async (err, results) => {
-      if (err) return reject(h.response({ error: 'Gagal memeriksa email' }).code(500));
-      if (results.length > 0) {
-        return reject(h.response({ error: 'Email sudah terdaftar' }).code(400));
-      }
+  try {
+    const [users] = await db.promise().query('SELECT * FROM users WHERE email = ?', [email]);
 
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const token = crypto.randomBytes(32).toString('hex');
+    if (users.length > 0) {
+      return h.response({ error: 'Email sudah terdaftar' }).code(400);
+    }
 
-      const insertSql = `INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)`;
-      db.query(insertSql, [username, email, hashedPassword, token], (err, results) => {
-        if (err) {
-          console.error(err);
-          return reject(h.response({ error: 'Gagal mendaftarkan user' }).code(500));
-        }
-        resolve(h.response({ message: 'Berhasil register', userId: results.insertId }).code(201));
-      });
-    });
-  });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const token = crypto.randomBytes(32).toString('hex');
+
+    const [result] = await db.promise().query(
+      'INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)',
+      [username, email, hashedPassword, token]
+    );
+
+    return h.response({ message: 'Berhasil register', userId: result.insertId }).code(201);
+  } catch (err) {
+    console.error('Register Error:', err);
+    return h.response({ error: 'Gagal mendaftarkan user' }).code(500);
+  }
 };
+
 
 const loginUserHandler = async (request, h) => {
   const { email, password } = request.payload;
