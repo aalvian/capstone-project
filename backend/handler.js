@@ -2,95 +2,70 @@ const db = require('./database');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 
-const checkDatabaseHandler = async (request, h) => {
-  try {
-    const { data, error } = await db.from('user').select('*').limit(1);
-
-    if (error) throw error;
-
-    return { status: 'success', message: 'Database terhubung' };
-  } catch (err) {
-    console.error('Koneksi Gagal:', err);
-    return h.response({ status: 'error', message: 'Database tidak terhubung' }).code(500);
-  }
+const checkDatabaseHandler = (request, h) => {
+  return new Promise((resolve, reject) => {
+    db.query('SELECT 1', (err, result) => {
+      if (err) {
+        console.error('Koneksi Gagal:', err);
+        return reject(h.response({ status: 'error', message: 'Database tidak terhubung' }).code(500));
+      }
+    resolve({ status: 'success', message: 'Database terhubung' });
+    });
+  });
 };
 
 const registerUserHandler = async (request, h) => {
   const { username, email, password } = request.payload;
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, 8);
-    const token = crypto.randomBytes(32).toString('hex');
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const token = crypto.randomBytes(32).toString('hex');
 
-    const { data, error } = await db
-      .from('user')
-      .insert([
-        {
-          username,
-          email,
-          password: hashedPassword,
-          token,
-        },
-      ])
-      .select();
-
-    if (error) throw error;
-
-    return h
-      .response({
-        message: 'User registered successfully',
-        user: data[0],
-      })
-      .code(201);
-  } catch (err) {
-    console.error(err);
-
-    if (err.code === '23505' && err.detail.includes('already exists')) {
-      return h.response({ error: 'Email sudah terdaftar' }).code(400);
-    }
-
-    return h.response({ error: 'Failed to register user' }).code(500);
-  }
+  return new Promise((resolve, reject) => {
+    const sql = `INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)`;
+    
+    db.query(sql, [username, email, hashedPassword, token], (err, results) => {
+      if (err) {
+        console.error(err);
+        return reject(h.response({ error: 'Failed to register user' }).code(500));
+      }
+      resolve(
+        h.response({ message: 'User registered successfully', userId: results.insertId }).code(201)
+      );
+    });
+  });
 };
 
 const loginUserHandler = async (request, h) => {
   const { email, password } = request.payload;
 
-  try {
-    const { data: users, error } = await db.from('user').select('*').eq('email', email).limit(1);
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT * FROM users WHERE email = ?`;
+    
+    db.query(sql, [email], async (err, results) => {
+      if (err) {
+        console.error(err);
+        return reject(h.response({ error: 'Gagal mengambil data user' }).code(500));
+      }
 
-    if (error) throw error;
+      if (results.length === 0) {
+        return reject(h.response({ error: 'Email tidak ditemukan' }).code(404));
+      }
 
-    if (users.length === 0) {
-      return h.response({ error: 'Email tidak ditemukan' }).code(404);
-    }
+      const user = results[0];
+      const passwordMatch = await bcrypt.compare(password, user.password);      
 
-    const user = users[0];
-    const passwordMatch = await bcrypt.compare(password, user.password);
+      if (!passwordMatch) {
+        return reject(h.response({ error: 'Password salah' }).code(401));
+      }
 
-    if (!passwordMatch) {
-      return h.response({ error: 'Password salah' }).code(401);
-    }
-
-    return h
-      .response({
-        message: 'Login berhasil',
-        user: {
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          token: user.token,
-        },
-      })
-      .code(200);
-  } catch (err) {
-    console.error(err);
-    return h.response({ error: 'Gagal mengambil data user' }).code(500);
-  }
+      resolve(h.response({ message: 'Login berhasil', user: { id: user.id, username: user.username, email: user.email, token: user.token } }).code(200));
+    });
+  });
 };
+
 
 module.exports = {
   checkDatabaseHandler,
   registerUserHandler,
-  loginUserHandler,
+  loginUserHandler
 };
