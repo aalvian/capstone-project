@@ -14,6 +14,7 @@ export default class RegisterPresenter {
       const response = await register({ username, email, password });
 
       if (!response.ok) {
+        console.log('Error dari backend:', response); // Tambahkan ini buat debug
         throw new Error(response.error ||response.message || 'Registrasi gagal');
       }
 

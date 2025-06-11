@@ -11,7 +11,9 @@ export const register = async ({ username, email, password }) => {
       body: JSON.stringify({ username, email, password }),
     });
 
-    const data = await response.json(); 
+    const data = await response.json();
+    console.log('RESPONSE FROM API:', data); // tambahkan ini
+ 
 
     return {
       ok: response.ok,
