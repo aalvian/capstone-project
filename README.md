@@ -1,4 +1,4 @@
-# 🎓 Pilih PTN — Teman Setia Menuju Kampus Impianmu!
+# 🎓 Pilih PTN — Gapai Kampus Impianmu!
 
 _Pilih PTN_ adalah aplikasi web interaktif yang dirancang untuk membantu siswa SMA/SMK sederajat dalam menentukan kampus terbaik berdasarkan nilai tryout SNBT mereka. Lebih dari sekadar rekomendasi, aplikasi ini hadir dengan fitur belajar cerdas dan personal, agar pengguna makin siap menghadapi ujian sebenarnya.
 
@@ -8,7 +8,7 @@ _Pilih PTN_ adalah aplikasi web interaktif yang dirancang untuk membantu siswa S
 
 Kami menemukan bahwa banyak siswa kesulitan dalam:
 
-- Menentukan _PTN yang cocok_ dengan nilai mereka.
+- Menentukan _PTN yang cocok_ dengan nilai tryout.
 - Mengetahui _subtes mana yang perlu diperbaiki_.
 - Mengatur waktu belajar dengan _lebih fokus dan terstruktur_.
 
