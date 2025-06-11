@@ -29,10 +29,14 @@ const registerUserHandler = async (request, h) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const token = crypto.randomBytes(32).toString('hex');
 
-    const [result] = await db.promise().query(
-      'INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)',
-      [username, email, hashedPassword, token]
-    );
+    const [result] = await db
+      .promise()
+      .query('INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)', [
+        username,
+        email,
+        hashedPassword,
+        token,
+      ]);
 
     return h.response({ message: 'Berhasil register', userId: result.insertId }).code(201);
   } catch (err) {
@@ -40,7 +44,6 @@ const registerUserHandler = async (request, h) => {
     return h.response({ error: 'Gagal mendaftarkan user' }).code(500);
   }
 };
-
 
 const loginUserHandler = async (request, h) => {
   const { email, password } = request.payload;

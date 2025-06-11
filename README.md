@@ -70,9 +70,11 @@ Gunakan teknik 25 menit belajar + 5 menit istirahat untuk menjaga fokus dan prod
   Script ini menjalankan server pengembangan webpack dengan fitur live reload dan mode development sesuai konfigurasi di`webpack.dev.js`.
 
 - Serve:
+
   ```shell
   npm run serve
   ```
+
   Script ini menggunakan [`http-server`](https://www.npmjs.com/package/http-server) untuk menyajikan konten dari direktori `dist`.
 
 - Start:
@@ -107,6 +109,7 @@ Kami menggunakan [Railway](https://railway.app) untuk deploy backend secara onli
    DB_PASSWORD=your_password
    DB_NAME=railway
    PORT=3000
+   ```
 
 ## 📁 Project Structure
 

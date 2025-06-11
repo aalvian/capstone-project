@@ -5,9 +5,9 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start-dev": "webpack serve --config webpack.dev.js",
+    "start": "node backend/server.js",
     "serve": "npm run build && http-server ./dist --port 3000",
     "prettier": "prettier . --write",
-    "start": "node backend/server.js",
     "dev": "concurrently  \"npm run start-dev\" \"npm run start\""
   },
   "keywords": [],
