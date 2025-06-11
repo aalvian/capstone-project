@@ -1,19 +1,25 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
+require('dotenv').config();
 
 const db = mysql.createConnection({
-  // host: 'localhost',
-  // port: 3306,
-  // user: 'root',
-  // password: '',
-  // database: 'db_pilihptn',
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 
-  host: 'sql12.freesqldatabase.com',
-  user: 'sql12783293',
-  password: 'RbQJQr4u7b',
-  database: 'sql12783293',
 });
 
 // Koneksi ke database
+
+console.log("ENV CHECK:", {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+
 db.connect((err) => {
   if (err) {
     console.error('Koneksi database gagal: ' + err.stack);
@@ -24,14 +30,3 @@ db.connect((err) => {
 
 module.exports = db;
 
-
-
-// const { createClient } = require('@supabase/supabase-js');
-
-// const supabaseUrl = 'https://uguranqlwddqpxlbqdks.supabase.co';
-// const supabaseKey =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVndXJhbnFsd2RkcXB4bGJxZGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NDA5NTQsImV4cCI6MjA2NTExNjk1NH0.T-AJlcQgbNM3K-L921zAkVbbTKMviUi3_WBg6BuBwUA';
-
-// const supabase = createClient(supabaseUrl, supabaseKey);
-
-// module.exports = supabase;

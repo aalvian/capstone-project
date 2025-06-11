@@ -35,9 +35,10 @@
     "@supabase/supabase-js": "^2.50.0",
     "bcrypt": "^6.0.0",
     "crypto": "^1.0.1",
+    "dotenv": "^16.5.0",
     "fullcalendar": "^6.1.17",
     "idb": "^8.0.3",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.14.1",
     "postgres": "^3.4.7"
   }
 }
