@@ -384,6 +384,67 @@ footer hr {
   }
 }
 
+@media (max-width: 576px) {
+  .navbar {
+    height: auto;
+    padding-block: 20px;
+  }
+  .main-content {
+    padding-top: 80px;
+    margin: 20px;
+  }
+  .big-header {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .big-header {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .mt-40 {
+    margin-top: 0px !important;
+  }
+
+  .my-5 {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .mb-20 {
+    margin-bottom: 20px !important;
+  }
+
+  .big-header {
+    font-size: 2rem;
+  }
+
+  .navbar {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .navbar .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  .navbar-toggler {
+    font-size: 1rem;
+  }
+}
+
 /* LOGIN REGISTER */
 .login-card {
   border-radius: 24px;
@@ -650,8 +711,6 @@ footer hr {
     font-size: 1.1rem;
   }
 }
-
-
 
 /* Header */
 #eventPopup h3 {

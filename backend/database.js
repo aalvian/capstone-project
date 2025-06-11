@@ -27,9 +27,9 @@
 
 const { createClient } = require('@supabase/supabase-js');
 
-// Ganti dengan URL dan key Supabase Anda
 const supabaseUrl = 'https://uguranqlwddqpxlbqdks.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVndXJhbnFsd2RkcXB4bGJxZGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NDA5NTQsImV4cCI6MjA2NTExNjk1NH0.T-AJlcQgbNM3K-L921zAkVbbTKMviUi3_WBg6BuBwUA';
+const supabaseKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVndXJhbnFsd2RkcXB4bGJxZGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1NDA5NTQsImV4cCI6MjA2NTExNjk1NH0.T-AJlcQgbNM3K-L921zAkVbbTKMviUi3_WBg6BuBwUA';
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 

@@ -4,11 +4,10 @@ const crypto = require('crypto');
 
 const checkDatabaseHandler = async (request, h) => {
   try {
-    // Test connection dengan mengambil 1 baris dari tabel user
     const { data, error } = await db.from('user').select('*').limit(1);
-    
+
     if (error) throw error;
-    
+
     return { status: 'success', message: 'Database terhubung' };
   } catch (err) {
     console.error('Koneksi Gagal:', err);
@@ -26,29 +25,30 @@ const registerUserHandler = async (request, h) => {
     const { data, error } = await db
       .from('user')
       .insert([
-        { 
-          username, 
-          email, 
-          password: hashedPassword, 
-          token 
-        }
+        {
+          username,
+          email,
+          password: hashedPassword,
+          token,
+        },
       ])
       .select();
 
     if (error) throw error;
 
-    return h.response({ 
-      message: 'User registered successfully', 
-      user: data[0] 
-    }).code(201);
+    return h
+      .response({
+        message: 'User registered successfully',
+        user: data[0],
+      })
+      .code(201);
   } catch (err) {
     console.error(err);
-    
-    // Cek jika error karena email sudah ada
+
     if (err.code === '23505' && err.detail.includes('already exists')) {
       return h.response({ error: 'Email sudah terdaftar' }).code(400);
     }
-    
+
     return h.response({ error: 'Failed to register user' }).code(500);
   }
 };
@@ -57,12 +57,7 @@ const loginUserHandler = async (request, h) => {
   const { email, password } = request.payload;
 
   try {
-    // Cari user berdasarkan email
-    const { data: users, error } = await db
-      .from('user')
-      .select('*')
-      .eq('email', email)
-      .limit(1);
+    const { data: users, error } = await db.from('user').select('*').eq('email', email).limit(1);
 
     if (error) throw error;
 
@@ -77,15 +72,17 @@ const loginUserHandler = async (request, h) => {
       return h.response({ error: 'Password salah' }).code(401);
     }
 
-    return h.response({
-      message: 'Login berhasil',
-      user: { 
-        id: user.id, 
-        username: user.username, 
-        email: user.email, 
-        token: user.token 
-      }
-    }).code(200);
+    return h
+      .response({
+        message: 'Login berhasil',
+        user: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+          token: user.token,
+        },
+      })
+      .code(200);
   } catch (err) {
     console.error(err);
     return h.response({ error: 'Gagal mengambil data user' }).code(500);

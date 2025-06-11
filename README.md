@@ -1,6 +1,6 @@
 # 🎓 Pilih PTN — Teman Setia Menuju Kampus Impianmu!
 
-*Pilih PTN* adalah aplikasi web interaktif yang dirancang untuk membantu siswa SMA/SMK sederajat dalam menentukan kampus terbaik berdasarkan nilai tryout SNBT mereka. Lebih dari sekadar rekomendasi, aplikasi ini hadir dengan fitur belajar cerdas dan personal, agar pengguna makin siap menghadapi ujian sebenarnya.
+_Pilih PTN_ adalah aplikasi web interaktif yang dirancang untuk membantu siswa SMA/SMK sederajat dalam menentukan kampus terbaik berdasarkan nilai tryout SNBT mereka. Lebih dari sekadar rekomendasi, aplikasi ini hadir dengan fitur belajar cerdas dan personal, agar pengguna makin siap menghadapi ujian sebenarnya.
 
 ---
 
@@ -8,39 +8,39 @@
 
 Kami menemukan bahwa banyak siswa kesulitan dalam:
 
-- Menentukan *PTN yang cocok* dengan nilai mereka.
-- Mengetahui *subtes mana yang perlu diperbaiki*.
-- Mengatur waktu belajar dengan *lebih fokus dan terstruktur*.
+- Menentukan _PTN yang cocok_ dengan nilai mereka.
+- Mengetahui _subtes mana yang perlu diperbaiki_.
+- Mengatur waktu belajar dengan _lebih fokus dan terstruktur_.
 
-*Pilih PTN hadir sebagai solusi.*  
+_Pilih PTN hadir sebagai solusi._  
 Kami memadukan teknologi web modern dan pendekatan Machine Learning untuk memberikan rekomendasi, insight belajar, dan fitur produktivitas dalam satu platform.
 
 ---
 
 ## ✨ Fitur Utama
 
-🔍 *Rekomendasi PTN Otomatis*  
+🔍 _Rekomendasi PTN Otomatis_  
 Cukup masukkan nilai tryout SNBT-mu. Sistem akan memberikan daftar PTN yang cocok menggunakan metode klasifikasi dan klusterisasi.
 
-📚 *Saran Belajar Personal*  
+📚 _Saran Belajar Personal_  
 Identifikasi subtes yang masih lemah dan dapatkan tips belajar yang sesuai untuk meningkatkan skor.
 
-🗓 *Penjadwalan Belajar*  
+🗓 _Penjadwalan Belajar_  
 Buat jadwal belajar seperti menggunakan Google Calendar — fleksibel, mudah, dan bisa disesuaikan.
 
-⏱ *Pomodoro Timer*  
+⏱ _Pomodoro Timer_  
 Gunakan teknik 25 menit belajar + 5 menit istirahat untuk menjaga fokus dan produktivitas.
 
 ---
 
 ## ⚙ Teknologi yang Digunakan
 
-| Kategori     | Teknologi                                      |
-|--------------|-------------------------------------------------|
-| Frontend     | Webpack, Bootstrap, Vanilla JavaScript          |
-| Backend      | Hapi.js (REST API)                              |
-| Database     | PostgreSQL                                      |
-| Tools        | Babel, IndexedDB, Service Worker, Prettier      |
+| Kategori | Teknologi                                  |
+| -------- | ------------------------------------------ |
+| Frontend | Webpack, Bootstrap, Vanilla JavaScript     |
+| Backend  | Hapi.js (REST API)                         |
+| Database | PostgreSQL                                 |
+| Tools    | Babel, IndexedDB, Service Worker, Prettier |
 
 ---
 
