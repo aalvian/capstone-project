@@ -1,4 +1,3 @@
-// import { register } from '../../../data/story-api';
 import { register } from '../../../data/auth-api';
 
 export default class RegisterPresenter {

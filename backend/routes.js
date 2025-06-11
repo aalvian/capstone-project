@@ -3,6 +3,13 @@ const { checkDatabaseHandler, registerUserHandler, loginUserHandler } = require(
 const routes = [
   {
     method: 'GET',
+    path: '/',
+    handler: (request, h) => {
+      return { message: 'Backend Hapi aktif dan berjalan' };
+    },
+  },
+  {
+    method: 'GET',
     path: '/api/check-db',
     handler: checkDatabaseHandler,
   },
@@ -17,19 +24,14 @@ const routes = [
     handler: loginUserHandler,
   },
   {
-    method: 'GET',
-    path: '/',
-    handler: (request, h) => {
-      return { message: 'Backend Hapi aktif dan berjalan!' };
-    }
-  },
-  {
     method: '*',
     path: '/{any*}',
     handler: (request, h) => {
-      return h.response({ statusCode: 404, error: 'Not Found', message: 'Route tidak ditemukan' }).code(404);
-    }
-  }
+      return h
+        .response({ statusCode: 404, error: 'Not Found', message: 'Route tidak ditemukan' })
+        .code(404);
+    },
+  },
 ];
 
 module.exports = routes;

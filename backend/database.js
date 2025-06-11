@@ -7,17 +7,6 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-
-});
-
-// Koneksi ke database
-
-console.log("ENV CHECK:", {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -29,4 +18,3 @@ db.connect((err) => {
 });
 
 module.exports = db;
-

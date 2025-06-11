@@ -7,9 +7,11 @@ const checkDatabaseHandler = (request, h) => {
     db.query('SELECT 1', (err, result) => {
       if (err) {
         console.error('Koneksi Gagal:', err);
-        return reject(h.response({ status: 'error', message: 'Database tidak terhubung' }).code(500));
+        return reject(
+          h.response({ status: 'error', message: 'Database tidak terhubung' }).code(500),
+        );
       }
-    resolve({ status: 'success', message: 'Database terhubung' });
+      resolve({ status: 'success', message: 'Database terhubung' });
     });
   });
 };
@@ -17,20 +19,25 @@ const checkDatabaseHandler = (request, h) => {
 const registerUserHandler = async (request, h) => {
   const { username, email, password } = request.payload;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const token = crypto.randomBytes(32).toString('hex');
-
   return new Promise((resolve, reject) => {
-    const sql = `INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)`;
-    
-    db.query(sql, [username, email, hashedPassword, token], (err, results) => {
-      if (err) {
-        console.error(err);
-        return reject(h.response({ error: 'Failed to register user' }).code(500));
+    const checkSql = 'SELECT * FROM users WHERE email = ?';
+    db.query(checkSql, [email], async (err, results) => {
+      if (err) return reject(h.response({ error: 'Gagal memeriksa email' }).code(500));
+      if (results.length > 0) {
+        return reject(h.response({ error: 'Email sudah terdaftar' }).code(400));
       }
-      resolve(
-        h.response({ message: 'User registered successfully', userId: results.insertId }).code(201)
-      );
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const token = crypto.randomBytes(32).toString('hex');
+
+      const insertSql = `INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)`;
+      db.query(insertSql, [username, email, hashedPassword, token], (err, results) => {
+        if (err) {
+          console.error(err);
+          return reject(h.response({ error: 'Gagal mendaftarkan user' }).code(500));
+        }
+        resolve(h.response({ message: 'Berhasil register', userId: results.insertId }).code(201));
+      });
     });
   });
 };
@@ -40,7 +47,7 @@ const loginUserHandler = async (request, h) => {
 
   return new Promise((resolve, reject) => {
     const sql = `SELECT * FROM users WHERE email = ?`;
-    
+
     db.query(sql, [email], async (err, results) => {
       if (err) {
         console.error(err);
@@ -52,20 +59,26 @@ const loginUserHandler = async (request, h) => {
       }
 
       const user = results[0];
-      const passwordMatch = await bcrypt.compare(password, user.password);      
+      const passwordMatch = await bcrypt.compare(password, user.password);
 
       if (!passwordMatch) {
         return reject(h.response({ error: 'Password salah' }).code(401));
       }
 
-      resolve(h.response({ message: 'Login berhasil', user: { id: user.id, username: user.username, email: user.email, token: user.token } }).code(200));
+      resolve(
+        h
+          .response({
+            message: 'Login berhasil',
+            user: { id: user.id, username: user.username, email: user.email, token: user.token },
+          })
+          .code(200),
+      );
     });
   });
 };
 
-
 module.exports = {
   checkDatabaseHandler,
   registerUserHandler,
-  loginUserHandler
+  loginUserHandler,
 };
