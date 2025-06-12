@@ -36,12 +36,11 @@ export async function login({ email, password }) {
     });
 
     const data = await response.json();
-    console.log('Login response:', data);
 
-    if (!data) {
+    if (!response.ok) {
       return {
         error: true,
-        message: data.message || 'Login gagal',
+        message: data.error || 'Login gagal',
       };
     }
 

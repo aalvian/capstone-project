@@ -12,11 +12,11 @@ class LoginPresenter {
     }
 
     try {
-      const { error, loginResult } = await login({ email, password });
+      const { error, message, loginResult } = await login({ email, password });
       console.log('Login Result:', loginResult);
 
       if (error) {
-        this._view.showError('Email atau password salah');
+        this._view.showError(message);
         return;
       }
 
