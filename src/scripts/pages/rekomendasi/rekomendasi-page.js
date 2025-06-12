@@ -16,31 +16,31 @@ export default class RekomendasiPage {
           <div class="form-body">
             <div class="mb-3">
               <label class="form-label">Penalaran Umum</label>
-              <input type="number" class="form-control" name="penalaran_umum" placeholder="Masukkan Nilai" required>
+              <input type="number" class="form-control" name="penalaran_umum" placeholder="Masukkan Nilai 0 - 1000" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Pengetahuan dan Pemahaman Umum</label>
-              <input type="number" class="form-control" name="pemahaman_umum" placeholder="Masukkan Nilai" required>
+              <input type="number" class="form-control" name="pemahaman_umum" placeholder="Masukkan Nilai 0 - 1000" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Memahami Bacaan dan Penulisan</label>
-              <input type="number" class="form-control" name="bacaan_penulisan" placeholder="Masukkan Nilai" required>
+              <input type="number" class="form-control" name="bacaan_penulisan" placeholder="Masukkan Nilai 0 - 1000" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Kemampuan Kuantitatif</label>
-              <input type="number" class="form-control" name="kuantitatif" placeholder="Masukkan Nilai" required>
+              <input type="number" class="form-control" name="kuantitatif" placeholder="Masukkan Nilai 0 - 1000" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Literasi dalam Bahasa Indonesia</label>
-              <input type="number" class="form-control" name="literasi_indonesia" placeholder="Masukkan Nilai" required>
+              <input type="number" class="form-control" name="literasi_indonesia" placeholder="Masukkan Nilai 0 - 1000" required>
             </div>
             <div class="mb-3">
               <label class="form-label">Literasi dalam Bahasa Inggris</label>
-              <input type="number" class="form-control" name="literasi_inggris" placeholder="Masukkan Nilai" required>
+              <input type="number" class="form-control" name="literasi_inggris" placeholder="Masukkan Nilai 0 - 1000" required>
             </div>
             <div class="mb-4">
               <label class="form-label">Penalaran Matematika</label>
-              <input type="number" class="form-control" name="penalaran_matematika" placeholder="Masukkan Nilai"
+              <input type="number" class="form-control" name="penalaran_matematika" placeholder="Masukkan Nilai 0 - 1000"
                 required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Submit Nilai</button>

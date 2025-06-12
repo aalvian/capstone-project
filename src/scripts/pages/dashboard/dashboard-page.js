@@ -29,17 +29,16 @@ export default class DashboardPage {
     <section id="fitur" class="features mt-70">
         <div class="container">
             <!-- atas -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3 class="medium-header mb-10">
-                        Fitur Utama
-                    </h3>
-                    <p class="primary-copy mb-30">
-                        Sistem efisien meningkatkan semangat
-                    </p>
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 text-center">
+                        <h3 class="medium-header mb-10">
+                            Fitur Utama
+                        </h3>
+                        <p class="primary-copy mb-30">
+                            Sistem efisien meningkatkan semangat
+                        </p>
+                     </div>
                 </div>
-
-            </div>
 
             <div class="row features-wrapper">
                 <!-- left -->
@@ -138,6 +137,90 @@ export default class DashboardPage {
             </div>
         </div> 
     </section>
+
+     <!-- Tim -->
+     <section id="tim" class="tim mt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="medium-header mb-10">
+                        Tim Kami
+                    </h3>
+                    <p class="primary-copy mb-30">
+                        Dedikasi dan kolaborasi tim kami untuk memberikan yang terbaik
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12 text-center mb-40">
+                    <h4 class="small-header">Tim FEBE</h4>
+                </div>
+                
+                <!-- FEBE Team -->
+                <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800">
+                    <div class="team-card text-center">
+                        <div class="team-photo mb-20">
+                            <img src="images/tim/febe1.jpg" alt="Anggota FEBE 1" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="small-header mb-5">M. Alvian Ari Nugroho</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card text-center">
+                        <div class="team-photo mb-20">
+                            <img src="images/tim/febe2.jpg" alt="Anggota FEBE 2" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="small-header mb-5">M. Gilang Himawan</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="team-card text-center">
+                        <div class="team-photo mb-20">
+                            <img src="images/tim/febe3.jpg" alt="Anggota FEBE 3" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="small-header mb-5">Moh. Kosim</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12 text-center mb-40">
+                    <h4 class="small-header">Tim Machine Learning</h4>
+                </div>
+                
+                <!-- ML Team -->
+                <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800">
+                    <div class="team-card text-center">
+                        <div class="team-photo mb-20">
+                            <img src="images/tim/ml1.jpg" alt="Anggota ML 1" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="small-header mb-5">Rivaldy Arrayan Yuwono</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card text-center">
+                        <div class="team-photo mb-20">
+                            <img src="images/tim/ml2.jpg" alt="Anggota ML 2" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="small-header mb-5">Adam Havenia Pratama</h4>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="team-card text-center">
+                        <div class="team-photo mb-20">
+                            <img src="images/tim/ml3.jpg" alt="Anggota ML 3" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="small-header mb-5">Zarifa Ayyasy</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
 
     <!-- Kontak Kami -->
      <section id="kontak" class="booking mt-70">

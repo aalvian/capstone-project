@@ -37,6 +37,7 @@
   from {
     opacity: 0.8;
   }
+
   to {
     opacity: 1;
   }
@@ -46,6 +47,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0.8;
   }
@@ -250,6 +252,12 @@ nav {
   margin-bottom: 30px;
 }
 
+.team-photo img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
 /* section 1 */
 
 .text-button {
@@ -312,9 +320,12 @@ nav {
 
 /* animasi */
 .blur-up {
-  filter: blur(10px); /* Keadaan awal dengan blur */
-  opacity: 0; /* Keadaan awal dengan opacity rendah */
-  transform: translateY(20px); /* Posisi sedikit ke bawah */
+  filter: blur(10px);
+  /* Keadaan awal dengan blur */
+  opacity: 0;
+  /* Keadaan awal dengan opacity rendah */
+  transform: translateY(20px);
+  /* Posisi sedikit ke bawah */
   transition:
     filter 0.8s ease,
     opacity 0.8s ease,
@@ -323,9 +334,12 @@ nav {
 
 /* Tambahkan class "animate" untuk memicu transisi */
 .blur-up.animate {
-  filter: blur(0); /* Blur dihapus */
-  opacity: 1; /* Muncul sepenuhnya */
-  transform: translateY(0); /* Kembali ke posisi awal */
+  filter: blur(0);
+  /* Blur dihapus */
+  opacity: 1;
+  /* Muncul sepenuhnya */
+  transform: translateY(0);
+  /* Kembali ke posisi awal */
 }
 
 /* Footer */
@@ -369,6 +383,7 @@ footer hr {
     height: auto;
     padding-block: 20px;
   }
+
   .main-content {
     padding-top: 110px;
   }
@@ -379,6 +394,7 @@ footer hr {
     height: auto;
     padding-block: 20px;
   }
+
   .main-content {
     padding-top: 90px;
   }
@@ -389,10 +405,12 @@ footer hr {
     height: auto;
     padding-block: 20px;
   }
+
   .main-content {
     padding-top: 80px;
     margin: 20px;
   }
+
   .big-header {
     font-size: 2rem;
   }
@@ -868,5 +886,5 @@ footer hr {
 }
 
 .popup-body button:hover {
-  background-color:  #83221b;
+  background-color: #83221b;
 }
