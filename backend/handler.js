@@ -6,7 +6,6 @@ const checkDatabaseHandler = (request, h) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT 1', (err, result) => {
       if (err) {
-        console.error('DB Error:', err); // Ini yang penting!
         return reject(
           h.response({
             status: 'fail',
