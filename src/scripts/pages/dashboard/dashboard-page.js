@@ -153,10 +153,7 @@ export default class DashboardPage {
             </div>
             
             <div class="row">
-                <div class="col-lg-12 text-center mb-40">
-                    <h4 class="small-header">Tim FEBE</h4>
-                </div>
-                
+            
                 <!-- FEBE Team -->
                 <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800">
                     <div class="team-card text-center">
@@ -187,10 +184,6 @@ export default class DashboardPage {
             </div>
             
             <div class="row">
-                <div class="col-lg-12 text-center mb-40">
-                    <h4 class="small-header">Tim Machine Learning</h4>
-                </div>
-                
                 <!-- ML Team -->
                 <div class="col-lg-4 mb-30" data-aos="fade-up" data-aos-duration="800">
                     <div class="team-card text-center">
@@ -242,28 +235,26 @@ export default class DashboardPage {
                             <img src="images/illustration_booking.png" alt="" class="img-fluid">
                         </div>
                         <div class="col-lg-6 booking-form align-self-center">
-                            <form action="">
-                                <div class="mb-16" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in-out">
-                                    <input placeholder="Nama Lengkap" type="text" name="name" id="" class="form-control">
+                            <form id="wa-form">
+                                <div class="mb-16">
+                                    <input placeholder="Nama Lengkap" type="text" name="name" class="form-control" required>
                                 </div>
-                                <div class="mb-16" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in-out">
-                                    <input placeholder="Alamat Email" type="email" name="email_address" id="" class="form-control">
+                                <div class="mb-16">
+                                    <input placeholder="Alamat Email" type="email" name="email_address" class="form-control" required>
                                 </div>
-                                <div class="mb-16" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in-out">
-                                    <select name="" id="" class="form-select">
-                                        <option value="0">Pilih tujuanmu</option>
-                                        <option value="focus">Meningkatkan Fokus</option>
-                                        <option value="task">Manajemen Tugas</option>
-                                        <option value="time">Optimasi Waktu</option>
-                                        <option value="sync">Sinkronisasi Kalender</option>
+                                <div class="mb-16">
+                                    <select name="tujuan" class="form-select" required>
+                                    <option value="" disabled selected>Pilih tujuanmu</option>
+                                    <option value="Meningkatkan Fokus">Meningkatkan Fokus</option>
+                                    <option value="Manajemen Tugas">Manajemen Tugas</option>
+                                    <option value="Optimasi Waktu">Optimasi Waktu</option>
+                                    <option value="Semangat Belajar">Semangat Belajar</option>
                                     </select>
                                 </div>
-                                <div class="mb-30 data" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in-out">
-                                    <textarea placeholder="tuliskan pesan anda" name="" id="" cols="30" rows="5" 
-                                    class="form-control"></textarea>
+                                <div class="mb-30 data">
+                                    <textarea placeholder="tuliskan pesan anda" name="pesan" cols="30" rows="5" class="form-control" required></textarea>
                                 </div>
-                                    <button class="w-100 btn btn-primary">Mulai Sekarang</button>
-                                </div>
+                                <button class="w-100 btn btn-primary">Mulai Sekarang</button>
                             </form>
                         </div>
                     </div>
@@ -277,5 +268,20 @@ export default class DashboardPage {
 
   async afterRender() {
     // Do your job here
+    const form = document.getElementById('wa-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = form.querySelector('input[name="name"]').value;
+      const email = form.querySelector('input[name="email_address"]').value;
+      const tujuan = form.querySelector('select').value;
+      const pesan = form.querySelector('textarea').value;
+
+      // Ganti nomor di bawah dengan nomor WhatsApp tujuan (format: 628xxxx)
+      const nomorWA = '6285231823145';
+      const text = `Halo, saya ${name} (${email})%0ATujuan: ${tujuan}%0APesan: ${pesan}`;
+      const url = `https://wa.me/${nomorWA}?text=${text}`;
+
+      window.open(url, '_blank');
+    });
   }
 }

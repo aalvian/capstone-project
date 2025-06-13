@@ -7,6 +7,9 @@ export function generateMainNavigationUnauthTemplate() {
       <a class="nav-link" href="#fitur">Fitur</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="#tim">Tim</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="#kontak">Kontak</a>
     </li>
   `;

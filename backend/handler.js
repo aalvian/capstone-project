@@ -6,11 +6,17 @@ const checkDatabaseHandler = (request, h) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT 1', (err, result) => {
       if (err) {
-        console.error('Koneksi Gagal:', err);
+        console.error('DB Error:', err); // Ini yang penting!
         return reject(
-          h.response({ status: 'error', message: 'Database tidak terhubung' }).code(500),
+          h.response({
+            status: 'fail',
+            message: 'Gagal konek ke database',
+            detail: err.message,
+          }).code(500)
         );
       }
+
+      console.log('Hasil query:', result);
       resolve({ status: 'success', message: 'Database terhubung' });
     });
   });
