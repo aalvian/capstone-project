@@ -66,6 +66,16 @@ section[id] {
   scroll-margin-top: 140px;
 }
 
+h2 {
+  font-size: 28px;
+  color: var(--navy)
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--navy)
+}
+
 .main-content {
   padding-top: 100px;
 }
@@ -185,10 +195,6 @@ nav {
   font-size: 14px;
   color: var(--navy);
   font-weight: var(--fwsemibold);
-}
-
-h5 {
-  color: var(--navy)
 }
 
 .badge {

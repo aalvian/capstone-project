@@ -29,9 +29,9 @@ export default class DashboardPage {
           <!-- atas -->
           <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
-              <h3 class="medium-header mb-10" data-aos="fade-up" data-aos-duration="500">
+              <h2 class="medium-header mb-10" data-aos="fade-up" data-aos-duration="500">
                 Fitur Utama
-              </h3>
+              </h2>
               <p class="primary-copy mb-30" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
                 Sistem efisien meningkatkan semangat
               </p>
@@ -258,7 +258,7 @@ export default class DashboardPage {
                 <div class="team-photo mb-3">
                     <img src="images/tim/febe1.jpg" alt="M. Alvian Ari Nugroho" class="img-fluid rounded-circle">
                 </div>
-                <h5 class="fw-bold mb-1">M. Alvian Ari Nugroho</h5>
+                <h4 class="fw-bold mb-1">M. Alvian Ari Nugroho</h4>
                 <div class="text-secondary mb-3">Web Developer</div>
                 <div>
                     <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
@@ -273,7 +273,7 @@ export default class DashboardPage {
                 <div class="team-photo mb-3">
                     <img src="images/tim/febe2.jpg" alt="M. Gilang Himawan" class="img-fluid rounded-circle">
                 </div>
-                <h5 class="fw-bold mb-1">M. Gilang Himawan</h5>
+                <h4 class="fw-bold mb-1">M. Gilang Himawan</h4>
                 <div class="text-secondary mb-3">Web Developer</div>
                 <div>
                     <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
@@ -288,7 +288,7 @@ export default class DashboardPage {
                 <div class="team-photo mb-3">
                     <img src="images/tim/febe3.jpg" alt="Moh. Kosim" class="img-fluid rounded-circle">
                 </div>
-                <h5 class="fw-bold mb-1">Moh. Kosim</h5>
+                <h4 class="fw-bold mb-1">Moh. Kosim</h4>
                 <div class="text-secondary mb-3">Web Developer</div>
                 <div>
                     <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
@@ -303,7 +303,7 @@ export default class DashboardPage {
                 <div class="team-photo mb-3">
                     <img src="images/tim/ml1.jpg" alt="Rivaldy" class="img-fluid rounded-circle">
                 </div>
-                <h5 class="fw-bold mb-1">Rivaldy Arrayan Yuwono</h5>
+                <h4 class="fw-bold mb-1">Rivaldy Arrayan Yuwono</h4>
                 <div class="text-secondary mb-3">Machine Learning</div>
                 <div>
                     <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
@@ -318,7 +318,7 @@ export default class DashboardPage {
                 <div class="team-photo mb-3">
                     <img src="images/tim/ml2.jpg" alt="Adam" class="img-fluid rounded-circle">
                 </div>
-                <h5 class="fw-bold mb-1">Adam Havenia Pratama</h5>
+                <h4 class="fw-bold mb-1">Adam Havenia Pratama</h4>
                 <div class="text-secondary mb-3">Machine Learning</div>
                 <div>
                     <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
@@ -333,7 +333,7 @@ export default class DashboardPage {
                 <div class="team-photo mb-3">
                     <img src="images/tim/ml3.jpg" alt="Zarifa" class="img-fluid rounded-circle">
                 </div>
-                <h5 class="fw-bold mb-1">Zarifa Ayyasy</h5>
+                <h4 class="fw-bold mb-1">Zarifa Ayyasy</h4>
                 <div class="text-secondary mb-3">Machine Learning</div>
                 <div>
                     <a href="#" class="text-secondary me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
@@ -374,7 +374,7 @@ export default class DashboardPage {
                       <input placeholder="Alamat Email" type="email" name="email_address" class="form-control" required>
                     </div>
                     <div class="mb-16" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in-out">
-                      <select name="tujuan" class="form-select" required>
+                      <select name="tujuan" class="form-select" aria-label="Pilih tujuan" required>
                         <option value="" disabled selected>Pilih tujuanmu</option>
                         <option value="Meningkatkan Fokus">Meningkatkan Fokus</option>
                         <option value="Manajemen Tugas">Manajemen Tugas</option>
