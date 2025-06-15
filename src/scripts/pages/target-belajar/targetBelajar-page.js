@@ -1,6 +1,7 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction'; // Add this import
 import TargetBelajarPresenter from '../target-belajar/targetBelajar-presenter.js';
 import Database from '../../data/database.js';
 
@@ -21,23 +22,23 @@ export default class TargetBelajarPage {
             <div id="eventPopup" style="display: none;">
               <h3>Tambahkan Target Belajar</h3>
               <form id="eventForm">
-                <label for="eventTitle">Titel</label>
-                <input type="text" id="eventTitle" placeholder="Title" required />
+                <label for="eventTitle">Judul</label>
+                <input type="text" id="eventTitle" placeholder="Judul" required />
                 <div class="date-row">
                   <div>
-                    <label for="startDate">Start-date</label>
+                    <label for="startDate">Tanggal Mulai</label>
                     <input type="date" id="startDate" required />
                   </div>
                   <div>
-                    <label for="endDate">End-date</label>
+                    <label for="endDate">Tanggal Selesai</label>
                     <input type="date" id="endDate" required />
                   </div>
                 </div>
                 <label for="eventDescription">Deskripsi</label>
                 <textarea id="eventDescription" rows="4" required></textarea>
                 <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
-                  <button type="button" onclick="closePopup()">Cancel</button>
-                  <button type="submit">Submit</button>
+                  <button type="button" onclick="closePopup()">Batal</button>
+                  <button type="submit">Simpan</button>
                 </div>
               </form>
             </div>
@@ -45,23 +46,51 @@ export default class TargetBelajarPage {
             <!-- Popup Detail Event -->
             <div id="eventDetailPopup" style="display: none;">
               <div class="popup-header">
-                <h3>View Event</h3>
+                <h3>Detail Target Belajar</h3>
               </div>
               <div class="popup-body">
-                <p><strong>Titel :</strong> <span id="detailTitle"></span></p>
-                <p><strong>Start-date :</strong> <span id="detailStart"></span></p>
-                <p><strong>End-date :</strong> <span id="detailEnd"></span></p>
+                <p><strong>Judul :</strong> <span id="detailTitle"></span></p>
+                <p><strong>Tanggal Mulai :</strong> <span id="detailStart"></span></p>
+                <p><strong>Tanggal Selesai :</strong> <span id="detailEnd"></span></p>
                 <p><strong>Deskripsi :</strong> <span id="detailDescription"></span></p>
-                <button type="button" onclick="closeEventDetailPopup()">Cancel</button>
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+                  <button type="button" onclick="closeEventDetailPopup()">Tutup</button>
+                </div>
               </div>
             </div>
 
-            <!-- Toast Success -->
+            <!-- Popup Edit Event -->
+            <div id="editEventPopup" style="display: none;">
+              <h3>Edit Target Belajar</h3>
+              <form id="editEventForm">
+                <input type="hidden" id="editEventId">
+                <label for="editEventTitle">Judul</label>
+                <input type="text" id="editEventTitle" placeholder="Judul" required />
+                <div class="date-row">
+                  <div>
+                    <label for="editStartDate">Tanggal Mulai</label>
+                    <input type="date" id="editStartDate" required />
+                  </div>
+                  <div>
+                    <label for="editEndDate">Tanggal Selesai</label>
+                    <input type="date" id="editEndDate" required />
+                  </div>
+                </div>
+                <label for="editEventDescription">Deskripsi</label>
+                <textarea id="editEventDescription" rows="4" required></textarea>
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+                  <button type="button" onclick="closeEditForm()">Batal</button>
+                  <button type="submit">Simpan Perubahan</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Toast Notifikasi -->
             <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
               <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                   <div class="toast-body">
-                    Event berhasil ditambahkan!
+                    Target berhasil ditambahkan!
                   </div>
                   <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
@@ -75,7 +104,6 @@ export default class TargetBelajarPage {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -98,7 +126,7 @@ export default class TargetBelajarPage {
     spinner.style.display = 'none';
 
     const calendar = new Calendar(calendarEl, {
-      plugins: [dayGridPlugin, listPlugin],
+      plugins: [dayGridPlugin, listPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
       aspectRatio: 1.5,
       headerToolbar: {
@@ -108,8 +136,9 @@ export default class TargetBelajarPage {
       },
       customButtons: {
         addEventButton: {
-          text: 'tambah jadwal',
-          click: function () {
+          text: 'tambah target',
+          click: () => { // Changed to arrow function to maintain 'this' context
+            this.#clearForm(); // Clear form when button is clicked
             window.openPopup();
           },
         },
@@ -124,10 +153,18 @@ export default class TargetBelajarPage {
           description: event.description,
         },
       })),
-      eventClick: function (info) {
+      dateClick: (info) => {
+        const clickedDate = info.dateStr;
+        document.getElementById('startDate').value = clickedDate;
+        document.getElementById('endDate').value = clickedDate;
+        window.openPopup();
+      },
+      eventClick: (info) => {
+        this.#currentEventId = info.event.id;
         document.getElementById('detailTitle').textContent = info.event.title;
-        document.getElementById('detailStart').textContent = info.event.startStr;
-        document.getElementById('detailEnd').textContent = info.event.endStr || info.event.startStr;
+        document.getElementById('detailStart').textContent = this.#formatDate(info.event.start);
+        document.getElementById('detailEnd').textContent = info.event.end ? 
+          this.#formatDate(info.event.end) : this.#formatDate(info.event.start);
         document.getElementById('detailDescription').textContent =
           info.event.extendedProps.description || '-';
         document.getElementById('eventDetailPopup').style.display = 'block';
@@ -172,25 +209,75 @@ export default class TargetBelajarPage {
       const successToast = new bootstrap.Toast(document.getElementById('successToast'));
       successToast.show();
 
-      e.target.reset();
+      this.#clearForm();
       window.closePopup();
     });
 
+    // Form submission for edit event
+    document.getElementById('editEventForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const id = document.getElementById('editEventId').value;
+      const title = document.getElementById('editEventTitle').value.trim();
+      const startDate = document.getElementById('editStartDate').value;
+      const endDate = document.getElementById('editEndDate').value;
+      const description = document.getElementById('editEventDescription').value.trim();
+
+      if (!title || !startDate || !endDate || !description) {
+        const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+        errorToast.show();
+        return;
+      }
+
+      const updatedEvent = {
+        id: parseInt(id),
+        title,
+        start: startDate,
+        end: endDate,
+        description
+      };
+
+      const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+      successToast.show();
+
+      window.closeEditForm();
+      window.closeEventDetailPopup();
+    });
+
     // Global popup functions
-    window.openPopup = function () {
+    window.openPopup = () => {
       document.getElementById('eventPopup').style.display = 'block';
     };
-    window.closePopup = function () {
+    window.closePopup = () => {
       document.getElementById('eventPopup').style.display = 'none';
     };
-    window.closeEventDetailPopup = function () {
+    window.closeEventDetailPopup = () => {
       document.getElementById('eventDetailPopup').style.display = 'none';
     };
   }
 
+  #currentEventId = null;
+
+  #clearForm() {
+    document.getElementById('eventTitle').value = '';
+    document.getElementById('startDate').value = '';
+    document.getElementById('endDate').value = '';
+    document.getElementById('eventDescription').value = '';
+  }
+
   #adjustEndDate(dateStr) {
+    if (!dateStr) return null;
     const date = new Date(dateStr);
-    date.setDate(date.getDate() + 1); // Tambah 1 hari
-    return date.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    date.setDate(date.getDate() + 1);
+    return date.toISOString().split('T')[0];
+  }
+
+  #formatDate(date) {
+    return new Date(date).toLocaleDateString('id-ID', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   }
 }
