@@ -66,6 +66,16 @@ section[id] {
   scroll-margin-top: 140px;
 }
 
+h2 {
+  font-size: 28px;
+  color: var(--navy);
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--navy);
+}
+
 .main-content {
   padding-top: 100px;
 }
@@ -187,10 +197,6 @@ nav {
   font-weight: var(--fwsemibold);
 }
 
-h5 {
-  color: var(--navy)
-}
-
 .badge {
   padding: 8px 16px 8px 16px;
   background: var(--softpurple);
@@ -255,7 +261,6 @@ h5 {
 .mb-30 {
   margin-bottom: 30px;
 }
-
 
 /* section 1 */
 
@@ -888,8 +893,6 @@ footer hr {
   background-color: #83221b;
 }
 
-
-
 .team-photo img {
   width: 140px;
   height: 140px;
@@ -899,11 +902,13 @@ footer hr {
 .team-card {
   border-radius: 18px;
   background: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
 }
 .team-card:hover {
-  box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
   transform: translateY(-8px) scale(1.03);
 }
 .team-photo img {
@@ -1370,4 +1375,3 @@ footer hr {
     width: 100%;
   }
 }
-

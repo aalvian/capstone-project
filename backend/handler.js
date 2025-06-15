@@ -7,11 +7,13 @@ const checkDatabaseHandler = (request, h) => {
     db.query('SELECT 1', (err, result) => {
       if (err) {
         return reject(
-          h.response({
-            status: 'fail',
-            message: 'Gagal konek ke database',
-            detail: err.message,
-          }).code(500)
+          h
+            .response({
+              status: 'fail',
+              message: 'Gagal konek ke database',
+              detail: err.message,
+            })
+            .code(500),
         );
       }
 

@@ -137,7 +137,8 @@ export default class TargetBelajarPage {
       customButtons: {
         addEventButton: {
           text: 'tambah target',
-          click: () => { // Changed to arrow function to maintain 'this' context
+          click: () => {
+            // Changed to arrow function to maintain 'this' context
             this.#clearForm(); // Clear form when button is clicked
             window.openPopup();
           },
@@ -163,8 +164,9 @@ export default class TargetBelajarPage {
         this.#currentEventId = info.event.id;
         document.getElementById('detailTitle').textContent = info.event.title;
         document.getElementById('detailStart').textContent = this.#formatDate(info.event.start);
-        document.getElementById('detailEnd').textContent = info.event.end ? 
-          this.#formatDate(info.event.end) : this.#formatDate(info.event.start);
+        document.getElementById('detailEnd').textContent = info.event.end
+          ? this.#formatDate(info.event.end)
+          : this.#formatDate(info.event.start);
         document.getElementById('detailDescription').textContent =
           info.event.extendedProps.description || '-';
         document.getElementById('eventDetailPopup').style.display = 'block';
@@ -234,7 +236,7 @@ export default class TargetBelajarPage {
         title,
         start: startDate,
         end: endDate,
-        description
+        description,
       };
 
       const successToast = new bootstrap.Toast(document.getElementById('successToast'));
@@ -277,7 +279,7 @@ export default class TargetBelajarPage {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
   }
 }
