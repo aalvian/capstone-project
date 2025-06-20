@@ -936,6 +936,7 @@ footer hr {
 .accordion-body {
   padding: 0 0 20px 0;
 }
+
 :root {
   --font: var(--font-sans-serif);
   --color-accent: var(--color-red);
@@ -1375,3 +1376,4 @@ footer hr {
     width: 100%;
   }
 }
+
