@@ -27,7 +27,7 @@ const registerUserHandler = async (request, h) => {
   const { username, email, password } = request.payload;
 
   try {
-    const [users] = await db.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+    const [users] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
 
     if (users.length > 0) {
       return h.response({ error: 'Email sudah terdaftar' }).code(400);
@@ -36,9 +36,8 @@ const registerUserHandler = async (request, h) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const token = crypto.randomBytes(32).toString('hex');
 
-    const [result] = await db
-      .promise()
-      .query('INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)', [
+    const [result] = await db.query(
+      'INSERT INTO users (username, email, password, token) VALUES (?, ?, ?, ?)', [
         username,
         email,
         hashedPassword,
@@ -56,7 +55,7 @@ const loginUserHandler = async (request, h) => {
   const { email, password } = request.payload;
 
   try {
-    const [results] = await db.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+    const [results] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
 
     if (results.length === 0) {
       return h.response({ error: 'Email tidak ditemukan' }).code(401);
